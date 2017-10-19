@@ -4,7 +4,7 @@
 * Spol (M/Ž):
 * Dob:
 
-1. Koliko često igrate računalne videoigre?
+1. Koliko često igrate videoigre?
 2. Kupujete li videoigre? Ukoliko kupujete, na koji od sljedećih načina:
     * a) Odem u dućan i fizički kupim kopiju igre
     * b) Kupujem igre putem servisa poput Steama ili Origina
@@ -22,7 +22,7 @@
 * Spol (M/Ž): Ž
 * Dob: 22
 
-1. Koliko često igrate računalne videoigre?
+1. Koliko često igrate videoigre?
 U prosjeku jednom godišnje
 2. Kupujete li videoigre? Ukoliko kupujete, na koji od sljedećih načina:
     * a) Odem u dućan i fizički kupim kopiju igre
@@ -42,3 +42,31 @@ U prosjeku jednom godišnje
 *Da, smatram je jako zanimljivom.*
 8. Ukoliko bi navedena web stranica imala mogućnost filtriranja igara i obavještavanja korisnika prema različitim kriterijima, kako je zamišljate?  
 *Zamišljam je kao da mi se prikazuju najpopularnije igre koje trenutno imaju najveći broj igrača (online primarno). Željela bih da mogu odjednom odabrati sve filtere po kojima želim da mi stranica sortira igre. Za igre koje već imam kupljene, htjela bih da me stranica obavještava o promjenama (updates, nove verzije, DLC...), a one koje nemam kupljene, a imam ih u listi želja, želim novosti o njima prije ostalih.*
+
+# Obrazac za intervju (GameQuest)
+
+* Ime i prezime: Elizabeta Domić
+* Spol (M/Ž): Ž
+* Dob: 23
+
+1. Koliko često igrate videoigre?
+*U prosjeku tri puta tjedno*
+2. Kupujete li videoigre? Ukoliko kupujete, na koji od sljedećih načina:
+    * a) Odem u dućan i fizički kupim kopiju igre
+    * b) Kupujem igre putem servisa poput Steama ili Origina
+    * c) Kupujem preprodane igre (CD-ključeve) putem servisa kao G2A
+    * d) Ostalo (navesti)
+    
+    **NE**
+3. Koristite li mikrotransakcije ukoliko ih igra podržava?
+*Ne*
+4. Posjedujete li više uređaja na kojima igrate videoigre?
+*Igram isključivo na mobilnom telefonu*
+5. Igra li cijena ulogu prilikom kupnje videoigre?
+*Igra, ne kupujem one igre koje nisu besplatne*
+6. Prema kojem kriteriju primarno tražite igre (žanr, cijena, popularnost, kompatibilnost...)?
+*Uglavnom po popularnosti, igram najpopularnije, zbog natjecanja. Uzimam u obzir i žanr.*
+7. Ukoliko bi postojala web stranica za pretraživanje videoigara iz više različitih izvora, biste li je koristili
+*Bih*
+8. Ukoliko bi navedena web stranica imala mogućnost filtriranja igara i obavještavanja korisnika prema različitim kriterijima, kako je zamišljate?
+*Zamišljam filter gdje mogu filtrirati po žanru i ostalim kriterijma, te da mi napočetku izbaci najpopularnije trenutno igrane igre na platformi koja me interesira (iOS).*
