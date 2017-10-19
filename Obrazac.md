@@ -57,16 +57,17 @@ U prosjeku jednom godišnje
     * c) Kupujem preprodane igre (CD-ključeve) putem servisa kao G2A
     * d) Ostalo (navesti)
     
+    
     **NE**
-3. Koristite li mikrotransakcije ukoliko ih igra podržava?
+3. Koristite li mikrotransakcije ukoliko ih igra podržava?  
 *Ne*
-4. Posjedujete li više uređaja na kojima igrate videoigre?
+4. Posjedujete li više uređaja na kojima igrate videoigre?  
 *Igram isključivo na mobilnom telefonu*
-5. Igra li cijena ulogu prilikom kupnje videoigre?
+5. Igra li cijena ulogu prilikom kupnje videoigre?  
 *Igra, ne kupujem one igre koje nisu besplatne*
-6. Prema kojem kriteriju primarno tražite igre (žanr, cijena, popularnost, kompatibilnost...)?
+6. Prema kojem kriteriju primarno tražite igre (žanr, cijena, popularnost, kompatibilnost...)?  
 *Uglavnom po popularnosti, igram najpopularnije, zbog natjecanja. Uzimam u obzir i žanr.*
-7. Ukoliko bi postojala web stranica za pretraživanje videoigara iz više različitih izvora, biste li je koristili
+7. Ukoliko bi postojala web stranica za pretraživanje videoigara iz više različitih izvora, biste li je koristili  
 *Bih*
-8. Ukoliko bi navedena web stranica imala mogućnost filtriranja igara i obavještavanja korisnika prema različitim kriterijima, kako je zamišljate?
+8. Ukoliko bi navedena web stranica imala mogućnost filtriranja igara i obavještavanja korisnika prema različitim kriterijima, kako je zamišljate?  
 *Zamišljam filter gdje mogu filtrirati po žanru i ostalim kriterijma, te da mi napočetku izbaci najpopularnije trenutno igrane igre na platformi koja me interesira (iOS).*
