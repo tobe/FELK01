@@ -71,3 +71,33 @@ U prosjeku jednom godišnje
 *Bih*
 8. Ukoliko bi navedena web stranica imala mogućnost filtriranja igara i obavještavanja korisnika prema različitim kriterijima, kako je zamišljate?  
 *Zamišljam filter gdje mogu filtrirati po žanru i ostalim kriterijma, te da mi napočetku izbaci najpopularnije trenutno igrane igre na platformi koja me interesira (iOS).*
+
+
+# Obrazac za intervju (GameQuest)
+
+* Ime i prezime: Martina Šarić
+* Spol (M/Ž): Ž
+* Dob: 21
+
+1. Koliko često igrate videoigre?
+*Tri-četiri puta tjedno*
+2. Kupujete li videoigre? Ukoliko kupujete, na koji od sljedećih načina:
+    * a) Odem u dućan i fizički kupim kopiju igre
+    * b) Kupujem igre putem servisa poput Steama ili Origina
+    * c) Kupujem preprodane igre (CD-ključeve) putem servisa kao G2A
+    * d) Ostalo (navesti)
+    
+    
+    **NE**
+3. Koristite li mikrotransakcije ukoliko ih igra podržava?  
+*Ne*
+4. Posjedujete li više uređaja na kojima igrate videoigre?  
+*Igram većinom na mobilnom telefonu, a jako rijetko na računalu*
+5. Igra li cijena ulogu prilikom kupnje videoigre?  
+*Igra, ne kupujem one igre koje nisu besplatne*
+6. Prema kojem kriteriju primarno tražite igre (žanr, cijena, popularnost, kompatibilnost...)?  
+*Uglavnom po popularnosti, a zatim po žanru. Igram samo besplatne igre*
+7. Ukoliko bi postojala web stranica za pretraživanje videoigara iz više različitih izvora, biste li je koristili  
+*Bih*
+8. Ukoliko bi navedena web stranica imala mogućnost filtriranja igara i obavještavanja korisnika prema različitim kriterijima, kako je zamišljate?  
+*Htjela bih prvo vidjeti igre koje su najpopularnije, a zatim povratne informacije ostalih igrača. Htjela bih da svaka predložena igra ima malu sliku zaslona kako bih imala ideju o tome kako izgleda. Nakon toga bi htjela filtrirati po žanru i cijeni.*
