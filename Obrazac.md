@@ -186,3 +186,35 @@
 
 8. Ukoliko bi navedena web stranica imala mogućnost filtriranja igara i obavještavanja korisnika prema različitim kriterijima, kako je zamišljate?  
 *Ne bi mi bio bitaj dizajn, no bitno bi mi bilo dam ogu pretraživati po žanru i po nekom vremenskom sortiranju, po reselleru (G2A, Steam), cijeni, ascending descending. Najbitniji bi mi bio search. I dizajn da je što minimalniji. Prvo najpopularnije, ali odma da u frontpageu da imaš vrlo dobar search da se vidi i sortiranje.*
+
+# Odgovori
+* Ime i prezime: Marin Ljiljak
+* Spol (M/Ž): M
+* Dob: 22
+
+1. Koliko često igrate videoigre?  
+*Skoro svakodnevno*
+
+2. Kupujete li videoigre? Ukoliko kupujete, na koji od sljedećih načina:
+    * a) Odem u dućan i fizički kupim kopiju igre
+    * b) Kupujem igre putem servisa poput Steama ili Origina  
+    **DA**
+    * c) Kupujem preprodane igre (CD-ključeve) putem servisa kao G2A
+    * d) Ostalo (navesti)
+3. Koristite li mikrotransakcije ukoliko ih igra podržava?  
+*Da*
+
+4. Posjedujete li više uređaja na kojima igrate videoigre?  
+*Da, Windows računalo i Android mobilni telefon.*
+
+5. Igra li cijena ulogu prilikom kupnje videoigre?  
+*Da, poprilično. Većinom igram free to play stvari, a na Steamu kupujem ili samo igre na popustu ili bunlde.*
+
+6. Prema kojem kriteriju primarno tražite igre (žanr, cijena, popularnost, kompatibilnost...)?  
+*Po žanru, zatim po cijeni, kritikama, traje li jedna sesija kratko ili dugo.*
+
+7. Ukoliko bi postojala web stranica za pretraživanje videoigara iz više različitih izvora, biste li je koristili?  
+*Da, koristio bih je. S obzirom na njezinu svrhu, pojednostavljena verzija svega minimalistički kad sear*
+
+8. Ukoliko bi navedena web stranica imala mogućnost filtriranja igara i obavještavanja korisnika prema različitim kriterijima, kako je zamišljate?  
+*Kad searchas igru izbaci ti sa svih stranica ali color coded je pozadina svega, ako je sa G2A onda je rak pozadina i takvo nešto jednostavno ono spicey, cijena velika jer je to jedino šta me zanima, buy now botun još veći i easy.*
