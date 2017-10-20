@@ -154,3 +154,35 @@
 
 8. Ukoliko bi navedena web stranica imala mogućnost filtriranja igara i obavještavanja korisnika prema različitim kriterijima, kako je zamišljate?
 *Zamislio sam je slično kao eBay. Samo da boljim filterima. Sa strane bih htio imati sve moguće filtere na temelju kojih mi se filtriraju rezultati u centru prikaza*
+
+# Odgovori
+* Ime i prezime: Luka Andabaka
+* Spol (M/Ž): M
+* Dob: 22
+
+1. Koliko često igrate videoigre?  
+*Tri do četiri dana u tjednu.*
+
+2. Kupujete li videoigre? Ukoliko kupujete, na koji od sljedećih načina:
+    * a) Odem u dućan i fizički kupim kopiju igre
+    * b) Kupujem igre putem servisa poput Steama ili Origina  
+    **DA**
+    * c) Kupujem preprodane igre (CD-ključeve) putem servisa kao G2A
+    * d) Ostalo (navesti)
+3. Koristite li mikrotransakcije ukoliko ih igra podržava?  
+*Da, mobilne igre.*
+
+4. Posjedujete li više uređaja na kojima igrate videoigre?  
+*Da, mobilni telefon (iPhone) i Macbook.*
+
+5. Igra li cijena ulogu prilikom kupnje videoigre?  
+*I ne baš.*
+
+6. Prema kojem kriteriju primarno tražite igre (žanr, cijena, popularnost, kompatibilnost...)?  
+*Primarno prema kompatibilnosti (Mac OS), zatim žanru, a potom popularnosti*
+
+7. Ukoliko bi postojala web stranica za pretraživanje videoigara iz više različitih izvora, biste li je koristili?  
+*Da, koristio bih je.*
+
+8. Ukoliko bi navedena web stranica imala mogućnost filtriranja igara i obavještavanja korisnika prema različitim kriterijima, kako je zamišljate?  
+*Ne bi mi bio bitaj dizajn, no bitno bi mi bilo dam ogu pretraživati po žanru i po nekom vremenskom sortiranju, po reselleru (G2A, Steam), cijeni, ascending descending. Najbitniji bi mi bio search. I dizajn da je što minimalniji. Prvo najpopularnije, ali odma da u frontpageu da imaš vrlo dobar search da se vidi i sortiranje.*
