@@ -218,3 +218,57 @@
 
 8. Ukoliko bi navedena web stranica imala mogućnost filtriranja igara i obavještavanja korisnika prema različitim kriterijima, kako je zamišljate?  
 *Kad searchas igru izbaci ti sa svih stranica ali color coded je pozadina svega, ako je sa G2A onda je rak pozadina i takvo nešto jednostavno ono spicey, cijena velika jer je to jedino šta me zanima, buy now botun još veći i easy.*
+
+
+
+# Radan 
+
+* Ime i prezime:
+* Spol (M/Ž):
+* Dob:
+
+1. Koliko često igrate videoigre?
+* Svaki dan oko 6 sati dnevno
+2. Kupujete li videoigre? Ukoliko kupujete, na koji od sljedećih načina:
+    * a) Odem u dućan i fizički kupim kopiju igre
+    * b) Kupujem igre putem servisa poput Steama ili Origina
+    * c) Kupujem preprodane igre (CD-ključeve) putem servisa kao G2A
+    **c**
+    * d) Ostalo (navesti)
+    **d**
+3. Koristite li mikrotransakcije ukoliko ih igra podržava?
+* Ne
+4. Posjedujete li više uređaja na kojima igrate videoigre?
+* Naravno, Windows laptop i stolno računalo
+5. Igra li cijena ulogu prilikom kupnje videoigre?
+* Naravno da igra
+6. Prema kojem kriteriju primarno tražite igre (žanr, cijena, popularnost, kompatibilnost...)?
+* Isključivo na temelju gameplaya i količine igrača na mreži
+7. Ukoliko bi postojala web stranica za pretraživanje videoigara iz više različitih izvora, biste li je koristili?
+* Koristio bih je
+8. Ukoliko bi navedena web stranica imala mogućnost filtriranja igara i obavještavanja korisnika prema različitim kriterijima, kako je zamišljate?
+* Zamišljam je slično kao i G2A, najpopularnije igre su odmah vidljive i sortirane su po platformi.
+
+
+
+
+1. Koliko često igrate videoigre?
+* Ponekad igram videoigre
+2. Kupujete li videoigre? Ukoliko kupujete, na koji od sljedećih načina:
+    * a) Odem u dućan i fizički kupim kopiju igre
+    * b) Kupujem igre putem servisa poput Steama ili Origina
+    * c) Kupujem preprodane igre (CD-ključeve) putem servisa kao G2A
+    * d) Ostalo (navesti)
+    Ne kupujem
+3. Koristite li mikrotransakcije ukoliko ih igra podržava?
+* Ne
+4. Posjedujete li više uređaja na kojima igrate videoigre?
+* Samo prijenosno računalo
+5. Igra li cijena ulogu prilikom kupnje videoigre?
+* Ne
+6. Prema kojem kriteriju primarno tražite igre (žanr, cijena, popularnost, kompatibilnost...)?
+* Prema popularnosti i prema koliko su realistične (gameplay)
+7. Ukoliko bi postojala web stranica za pretraživanje videoigara iz više različitih izvora, biste li je koristili?
+* Naravno da bih je koristio
+8. Ukoliko bi navedena web stranica imala mogućnost filtriranja igara i obavještavanja korisnika prema različitim kriterijima, kako je zamišljate?
+* Bilo bi dobro da izgleda vrlo slično kao trgovina aplikacijama na iOS uređajima, da ima mogućnost recenzija svih igara kao i da netko prije provjeri koliko su te igre legitimne. 
