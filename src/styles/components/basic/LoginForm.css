@@ -1,0 +1,40 @@
+.LoginForm {
+    --LoginForm-button-bg-color: #555;
+    --LoginForm-button-bg-color-on-hover: rgba(85, 85, 85, 0.74);
+    --LoginForm-input-border-color: var(--LoginForm-button-bg-color-on-hover);
+    --LoginForm-input-border-focus-color: var(--LoginForm-button-bg-color-on-hover);
+    --LoginForm-color: white;
+
+    display: grid;
+    grid-row-gap: 0.5em;
+    grid-template-columns: 350px;
+    font-size: 1.1em;
+    justify-items: stretch;
+}
+
+.LoginForm__input {
+    outline: none;
+    border: solid 1px var(--LoginForm-input-border-color);
+}
+
+.LoginForm__input:focus {
+    border-color: var(--LoginForm-input-border-focus-color);
+    box-shadow: 0 0 5px 0px var(--LoginForm-input-border-focus-color);    
+}
+
+.LoginForm__button, .LoginForm__input {
+    padding: 0.5em;
+    font-size: inherit;
+}
+
+.LoginForm__button {
+    background-color: var(--LoginForm-button-bg-color);
+    color: var(--LoginForm-color);
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.LoginForm__button:hover {
+    background-color: var(--LoginForm-button-bg-color-on-hover);
+}

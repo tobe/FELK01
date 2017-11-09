@@ -1,0 +1,75 @@
+/* Colors */
+:root {
+    /* Colors */
+    --main-color: #555;
+    --alert-color: orangered;
+
+    --bg-color-active: rgba(85, 85, 85, 0.527);
+    --bg-color-on-hover: var(--main-color);
+    
+    --color: black;
+    --color-on-hover: white;
+
+    /* Layout */
+    --main-container-width: 800px;
+}   
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr;
+    max-width: var(--main-container-width);  
+    min-height: 100vh;
+    align-items: center;
+    justify-items: center;
+    margin: 0 auto;
+    grid-gap: 0.5em;
+}
+
+header {
+    margin: 0 auto;
+    max-width: var(--main-container-width);
+}
+
+main {
+    padding-top: 4em;
+}
+
+.header {
+    width: 100%;
+    color: var(--main-color); 
+    text-align: center;
+}
+
+.alert {
+    color: var(--alert-color);
+}
+
+.flex--end {
+    justify-self: flex-end;
+}
+
+.flex--start {
+    justify-self: flex-start;
+}
+
+ul {
+    list-style-type: square;
+    list-style-position: inside;
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    margin: 1em;
+}

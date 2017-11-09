@@ -1,0 +1,84 @@
+/* Please note that we are using BEM naming convention  
+   with our classes. For more information please check:
+   1. https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/
+   2. https://en.bem.info/
+*/
+
+.Nav__container {
+    display: none;
+}
+
+.Nav__container--mobile {
+    display: flex;
+}
+
+.Nav__container, .Nav__container--mobile {
+    --Nav-bg-color-active: rgba(85, 85, 85, 0.527);
+    --Nav-bg-color-on-hover: #555;
+    --Nav-color: black;
+    --Nav-color-on-hover: white;
+
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    height: calc(5em + 1px);
+    border-bottom: 1px solid var(--bg-color-active, --Nav-bg-color-active);
+}
+
+.Nav__link-wrapper {
+    display: none;
+    overflow-x: hidden;
+}
+
+.Nav__link-wrapper--mobile {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--bg-color-active, --Nav-bg-color-active);
+    background-color: var(--Nav-color-on-hover);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translate(-100%, 5em);
+    transition: .3s ease-in-out;
+}
+
+.Nav__link-wrapper--open {
+    transform: translate(0, 5em);   
+}
+
+.Nav__link {
+    padding: 0.5em 1em;
+    color: var(--color, --Nav-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.Nav__link:hover {       
+    background-color: var(--bg-color-on-hover, --Nav-bg-color-on-hover);
+    color: var(--color-on-hover, --Nav-color-on-hover);    
+}
+
+.Nav--active {
+    color: white;
+    background-color: var(--bg-color-active, --Nav-bg-color-active);
+}
+
+@media screen and (min-width: 400px) {
+    .Nav__container {
+        display: flex !important;
+    }
+    
+    .Nav__container--mobile {
+        display: none !important;
+    }    
+
+    .Nav__link-wrapper {
+        display: flex !important;
+    }
+
+    .Nav__link-wrapper--mobile {
+        display: none !important;
+    }  
+}

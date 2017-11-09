@@ -1,0 +1,247 @@
+/* Colors */
+:root {
+    /* Colors */
+    --main-color: #555;
+    --alert-color: orangered;
+
+    --bg-color-active: rgba(85, 85, 85, 0.527);
+    --bg-color-on-hover: var(--main-color);
+    
+    --color: black;
+    --color-on-hover: white;
+
+    /* Layout */
+    --main-container-width: 800px;
+}   
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr;
+    max-width: var(--main-container-width);  
+    min-height: 100vh;
+    align-items: center;
+    justify-items: center;
+    margin: 0 auto;
+    grid-gap: 0.5em;
+}
+
+header {
+    margin: 0 auto;
+    max-width: var(--main-container-width);
+}
+
+main {
+    padding-top: 4em;
+}
+
+.header {
+    width: 100%;
+    color: var(--main-color); 
+    text-align: center;
+}
+
+.alert {
+    color: var(--alert-color);
+}
+
+.flex--end {
+    justify-self: flex-end;
+}
+
+.flex--start {
+    justify-self: flex-start;
+}
+
+ul {
+    list-style-type: square;
+    list-style-position: inside;
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    margin: 1em;
+}
+/* Please note that we are using BEM naming convention  
+   with our classes. For more information please check:
+   1. https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/
+   2. https://en.bem.info/
+*/
+
+.Nav__container {
+    display: none;
+}
+
+.Nav__container--mobile {
+    display: flex;
+}
+
+.Nav__container, .Nav__container--mobile {
+    --Nav-bg-color-active: rgba(85, 85, 85, 0.527);
+    --Nav-bg-color-on-hover: #555;
+    --Nav-color: black;
+    --Nav-color-on-hover: white;
+
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    height: calc(5em + 1px);
+    border-bottom: 1px solid var(--bg-color-active, --Nav-bg-color-active);
+}
+
+.Nav__link-wrapper {
+    display: none;
+    overflow-x: hidden;
+}
+
+.Nav__link-wrapper--mobile {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--bg-color-active, --Nav-bg-color-active);
+    background-color: var(--Nav-color-on-hover);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translate(-100%, 5em);
+    transition: .3s ease-in-out;
+}
+
+.Nav__link-wrapper--open {
+    transform: translate(0, 5em);   
+}
+
+.Nav__link {
+    padding: 0.5em 1em;
+    color: var(--color, --Nav-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.Nav__link:hover {       
+    background-color: var(--bg-color-on-hover, --Nav-bg-color-on-hover);
+    color: var(--color-on-hover, --Nav-color-on-hover);    
+}
+
+.Nav--active {
+    color: white;
+    background-color: var(--bg-color-active, --Nav-bg-color-active);
+}
+
+@media screen and (min-width: 400px) {
+    .Nav__container {
+        display: flex !important;
+    }
+    
+    .Nav__container--mobile {
+        display: none !important;
+    }    
+
+    .Nav__link-wrapper {
+        display: flex !important;
+    }
+
+    .Nav__link-wrapper--mobile {
+        display: none !important;
+    }  
+}
+.Hamburger {
+    cursor: pointer;
+    display: flex !important;
+}    
+
+.Hamburger__icon {
+    --Hamburger-size: 39px;
+    background: var(--main-color, orangered);
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    width: var(--Hamburger-size);
+    height: var(--Hamburger-size);       
+}
+
+.Hamburger__span {
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    left: 8px;
+    right: 9px;
+    height: 3px;
+    background: white;
+}
+
+.Hamburger__icon:before, 
+.Hamburger__icon:after {
+    position: absolute;
+    display: block;
+    left: 8px;
+    right: 9px;
+    height: 3px;
+    background-color: #fff;
+    content: "";        
+}
+
+.Hamburger__icon:before {
+    top: 18px;
+}
+
+.Hamburger__icon:after {
+    bottom: 10px;
+}
+
+@media screen and (min-width: 400px) {
+    .Hamburger {
+        display: none !important;
+    }
+}.LoginForm {
+    --LoginForm-button-bg-color: #555;
+    --LoginForm-button-bg-color-on-hover: rgba(85, 85, 85, 0.74);
+    --LoginForm-input-border-color: var(--LoginForm-button-bg-color-on-hover);
+    --LoginForm-input-border-focus-color: var(--LoginForm-button-bg-color-on-hover);
+    --LoginForm-color: white;
+
+    display: grid;
+    grid-row-gap: 0.5em;
+    grid-template-columns: 350px;
+    font-size: 1.1em;
+    justify-items: stretch;
+}
+
+.LoginForm__input {
+    outline: none;
+    border: solid 1px var(--LoginForm-input-border-color);
+}
+
+.LoginForm__input:focus {
+    border-color: var(--LoginForm-input-border-focus-color);
+    box-shadow: 0 0 5px 0px var(--LoginForm-input-border-focus-color);    
+}
+
+.LoginForm__button, .LoginForm__input {
+    padding: 0.5em;
+    font-size: inherit;
+}
+
+.LoginForm__button {
+    background-color: var(--LoginForm-button-bg-color);
+    color: var(--LoginForm-color);
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.LoginForm__button:hover {
+    background-color: var(--LoginForm-button-bg-color-on-hover);
+}
