@@ -1,7 +1,8 @@
 const path = require('path');
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin  = require('html-webpack-plugin');
+const ExtractTextPlugin  = require('extract-text-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 const isProduction = process.env.NODE_ENV === 'production';
 const cssDev = ['style-loader', 'css-loader'];
@@ -10,6 +11,8 @@ const cssProduction = ExtractTextPlugin.extract({
     use: ['css-loader']
 });
 const cssConfig = isProduction ? cssProduction : cssDev;
+
+console.log('::: Senses Fail :::');
 
 module.exports = {
     entry: {
@@ -49,7 +52,11 @@ module.exports = {
                   fallback: "style-loader",
                   use: "css-loader"
                 })
-            }            
+            },
+            {
+                 test: /\.(png|jpg|gif|woff|woff2|ttf|svg|eot)$/,
+                 use: 'file-loader?name=assets/[name]-[hash:6].[ext]'
+            }
         ]
     },
 
@@ -62,6 +69,14 @@ module.exports = {
     },
 
     plugins: [
+        new CleanWebpackPlugin(
+            [
+                './public/*.js',
+                './public/*.css'
+            ],
+            { root: path.resolve(__dirname) }
+        ),
+
         new ExtractTextPlugin({
             filename: '[name].bundle.css',
             //disable: !isProduction

@@ -10,19 +10,23 @@
 
 .Nav__container--mobile {
     display: flex;
+
+    /* Push the hamburger icon all the way to the right */
+    justify-content: flex-end;
+    width: 100vw;
 }
 
 .Nav__container, .Nav__container--mobile {
     --Nav-bg-color-active: rgba(85, 85, 85, 0.527);
     --Nav-bg-color-on-hover: #555;
-    --Nav-color: black;
+    --Nav-color: white;
     --Nav-color-on-hover: white;
 
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: flex-end;
-    width: 100%;
+    /* width: 100%;
     height: calc(5em + 1px);
-    border-bottom: 1px solid var(--bg-color-active, --Nav-bg-color-active);
+    border-bottom: 1px solid var(--bg-color-active, --Nav-bg-color-active); */
 }
 
 .Nav__link-wrapper {
@@ -40,8 +44,9 @@
     top: 0;
     left: 0;
     right: 0;
-    transform: translate(-100%, 5em);
-    transition: .3s ease-in-out;
+    transform: translate(100%, 5em);
+    /*transition: .3s ease-in-out;*/
+    transition: .3s linear;
 }
 
 .Nav__link-wrapper--open {
@@ -49,10 +54,16 @@
 }
 
 .Nav__link {
-    padding: 0.5em 1em;
-    color: var(--color, --Nav-color);
+    padding: 0.5em 1.5em;
+    color: var(--Nav-color);
     text-decoration: none;
     cursor: pointer;
+}
+@media screen and (max-width: 576px) {
+    .Nav__link {
+        /* Black text for mobile screens */
+        color: #000;
+    }
 }
 
 .Nav__link:hover {       
@@ -65,9 +76,12 @@
     background-color: var(--bg-color-active, --Nav-bg-color-active);
 }
 
-@media screen and (min-width: 400px) {
+@media screen and (min-width: 576px) {
     .Nav__container {
         display: flex !important;
+        flex-direction: row;
+        justify-content: flex-end;
+        width: 100vw;
     }
     
     .Nav__container--mobile {

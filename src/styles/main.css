@@ -12,7 +12,7 @@
 
     /* Layout */
     --main-container-width: 800px;
-}   
+}
 
 * {
     margin: 0;
@@ -21,46 +21,81 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Open Sans', 'Segoe UI', 'Calibri', sans-serif;
+    font-size: 1rem;
+    color: #444;
 }
 
 .container {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto 1fr;
-    max-width: var(--main-container-width);  
-    min-height: 100vh;
-    align-items: center;
-    justify-items: center;
-    margin: 0 auto;
-    grid-gap: 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width:  100vw;
+    height: 100vh; 
+    margin: 0 auto;           
 }
 
 header {
-    margin: 0 auto;
-    max-width: var(--main-container-width);
+    display: flex; /* We need this in order to position the navigation "inline" */
+    border: 1px solid #000;
+    background-color: #343a40!important;
+    color: #FFF;
+    padding: .5rem;
 }
 
-main {
-    padding-top: 4em;
+header > span > i {
+    /* Inline the icon, navbar fix */
+    display: inline !important;
+    padding-right: .3rem;
 }
 
-.header {
-    width: 100%;
-    color: var(--main-color); 
-    text-align: center;
+header > span.name {
+    font-size: 2rem;
+    font-weight: 300;
 }
 
-.alert {
-    color: var(--alert-color);
+.main {
+    display: flex;
+    flex: auto;
+    justify-content: space-around;
+    align-content: flex-start;
+    align-items: center;
 }
 
-.flex--end {
-    justify-self: flex-end;
+aside {
+    background-color: #00FF00;
 }
 
-.flex--start {
-    justify-self: flex-start;
+footer {
+    background-color: #0000FF;
+}
+
+@supports (display: grid) {
+    @media screen and (min-width: 576px)  {
+        .container {
+            /*max-width: 1140px;*/
+            display: grid;
+            grid-template-columns: .5fr 2fr;
+            grid-template-rows: auto 1fr auto auto;
+            grid-template-areas: 
+                "header header header"
+                "aside main main"
+                "footer footer footer";
+            /*grid-gap: 0.5em;*/
+        }
+        .header {
+            grid-area: header;
+        }
+        .main {
+            grid-area: main;
+        }
+        .aside {
+            grid-area: aside;
+        }
+        .footer {
+            grid-area: footer;
+        }
+    }
 }
 
 ul {

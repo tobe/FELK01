@@ -3,6 +3,7 @@
 import React,  { Component } from 'react';
 import ReactDOM from 'react-dom';
 import 'styles/main.css'
+import 'font-awesome/css/font-awesome.min.css'
 
 import {
     BrowserRouter as Router,
@@ -42,6 +43,43 @@ const authenticator = {
 //------------------------------------
 const App = () => (
     <Router>        
+        <div className="container">
+            <header className="header">
+                <span className="name"><i className="fa fa-gamepad" aria-hidden="true"></i>GameQuest</span>
+                <Nav links={links} authenticator={authenticator}/>
+                <Nav mobile links={links} authenticator={authenticator}/>
+            </header>
+            <aside>
+                Aside...
+            </aside>
+            <main className="main">
+                <div className="my_flex">A</div>
+                <div className="my_flex">Main</div>
+                <div className="my_flex">C</div>
+
+                <Route exact path="/" render={() => <Redirect to='/home'/>} />
+                <Route path="/home" component={Home}/>
+                <Route path="/about" component={About}/>
+                <Route path="/news" component={News}/>
+                <Route exact path="/login" render={() => 
+                    <LoginForm 
+                        private="/private"
+                        authenticator={authenticator}
+                    />
+                }/>
+
+                <PrivateRoute path="/private"
+                    component={Private}
+                    authenticator={authenticator}
+                    redirect={"/login"}
+                />
+            </main>
+            <footer className="footer">Footer</footer>    
+        </div>
+    </Router>
+)
+/*const App = () => (
+    <Router>        
         <div>
             <header>
                 <Nav links={links} authenticator={authenticator}/>
@@ -71,7 +109,7 @@ const App = () => (
             </div>
         </div>
     </Router>
-)
+)*/
 
 ReactDOM.render(<App/>, document.getElementById('root'))
 
