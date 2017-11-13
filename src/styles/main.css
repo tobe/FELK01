@@ -67,7 +67,7 @@ aside {
 }
 
 footer {
-    background-color: #0000FF;
+    text-align: center;
 }
 
 @supports (display: grid) {

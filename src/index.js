@@ -21,7 +21,6 @@ import LoginForm from 'components/basic/LoginForm.jsx'
 
 const links = ['Home', 'About', 'News', 'Private']
 
-
 //------------------------------------
 // Faking an authentication service
 //------------------------------------
@@ -42,74 +41,39 @@ const authenticator = {
 // The main component
 //------------------------------------
 const App = () => (
-    <Router>        
+    <Router>
         <div className="container">
             <header className="header">
                 <span className="name"><i className="fa fa-gamepad" aria-hidden="true"></i>GameQuest</span>
                 <Nav links={links} authenticator={authenticator}/>
                 <Nav mobile links={links} authenticator={authenticator}/>
             </header>
+
             <aside>
-                Aside...
+            Aside text
             </aside>
-            <main className="main">
-                <div className="my_flex">A</div>
-                <div className="my_flex">Main</div>
-                <div className="my_flex">C</div>
 
-                <Route exact path="/" render={() => <Redirect to='/home'/>} />
-                <Route path="/home" component={Home}/>
-                <Route path="/about" component={About}/>
-                <Route path="/news" component={News}/>
-                <Route exact path="/login" render={() => 
-                    <LoginForm 
-                        private="/private"
-                        authenticator={authenticator}
-                    />
-                }/>
-
-                <PrivateRoute path="/private"
-                    component={Private}
+            <Route exact path="/" render={() => <Redirect to='/home'/>} />
+            <Route path="/home" component={Home} />
+            <Route path="/about" component={About}/>
+            <Route path="/news" component={News}/>
+            <Route exact path="/login" render={() => 
+                <LoginForm 
+                    private="/private"
                     authenticator={authenticator}
-                    redirect={"/login"}
                 />
-            </main>
-            <footer className="footer">Footer</footer>    
-        </div>
-    </Router>
-)
-/*const App = () => (
-    <Router>        
-        <div>
-            <header>
-                <Nav links={links} authenticator={authenticator}/>
-                <Nav mobile links={links} authenticator={authenticator}/>
-            </header>    
-                
-            <div className="container">            
-                <h1 className='header'>React Router</h1>
-                <main>
-                    <Route exact path="/" render={() => <Redirect to='/home'/>} />
-                    <Route path="/home" component={Home}/>
-                    <Route path="/about" component={About}/>
-                    <Route path="/news" component={News}/>
-                    <Route exact path="/login" render={() => 
-                        <LoginForm 
-                            private="/private"
-                            authenticator={authenticator}
-                        />
-                    }/>
+            }/>
 
-                    <PrivateRoute path="/private"
-                        component={Private}
-                        authenticator={authenticator}
-                        redirect={"/login"}
-                    />
-                </main>
-            </div>
+            <PrivateRoute path="/private"
+                component={Private}
+                authenticator={authenticator}
+                redirect={"/login"}
+            />
+
+            <footer className="footer">&copy; 2017 GameQuest</footer>
         </div>
     </Router>
-)*/
+);
 
 ReactDOM.render(<App/>, document.getElementById('root'))
 
