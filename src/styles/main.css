@@ -32,7 +32,7 @@ body {
     justify-content: space-between;
     width:  100vw;
     height: 100vh; 
-    margin: 0 auto;           
+    margin: 0 auto;       
 }
 
 header {
@@ -54,12 +54,10 @@ header > span.name {
     font-weight: 300;
 }
 
-.main {
+.maincontainer {
     display: flex;
-    flex: auto;
-    justify-content: space-around;
-    align-content: flex-start;
-    align-items: center;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 aside {
@@ -79,12 +77,20 @@ footer {
             grid-template-rows: auto 1fr auto auto;
             grid-template-areas: 
                 "header header header"
-                "aside main main"
+                "maincontainer maincontainer maincontainer"
                 "footer footer footer";
             /*grid-gap: 0.5em;*/
         }
         .header {
             grid-area: header;
+        }
+        .maincontainer {
+            grid-area: maincontainer;
+
+            display: grid;
+            grid-template-columns: 1fr 4fr;
+            grid-template-areas: 
+                "aside main";
         }
         .main {
             grid-area: main;

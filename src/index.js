@@ -49,10 +49,6 @@ const App = () => (
                 <Nav mobile links={links} authenticator={authenticator}/>
             </header>
 
-            <aside>
-            Aside text
-            </aside>
-
             <Route exact path="/" render={() => <Redirect to='/home'/>} />
             <Route path="/home" component={Home} />
             <Route path="/about" component={About}/>
