@@ -49,8 +49,9 @@ const App = () => (
                 <Nav mobile links={links} authenticator={authenticator}/>
             </header>
 
-            <Route exact path="/" render={() => <Redirect to='/home'/>} />
-            <Route path="/home" component={Home} />
+            {/*<Route exact path="/" render={() => <Redirect to='/home'/>} />*/}
+            <Route exact path="/" component={Home} />
+            {/*<Route path="/home" component={Home} />*/}
             <Route path="/about" component={About}/>
             <Route path="/news" component={News}/>
             <Route exact path="/login" render={() => 

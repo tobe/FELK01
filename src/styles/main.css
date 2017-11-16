@@ -61,7 +61,8 @@ header > span.name {
 }
 
 aside {
-    background-color: #00FF00;
+    border-bottom: 1px solid #EEE;
+    padding: .5rem;
 }
 
 footer {

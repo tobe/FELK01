@@ -17,4 +17,5 @@
     bottom: 5%;
     margin: auto;
     background: white;
+    overflow: scroll;
 }
