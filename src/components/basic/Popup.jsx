@@ -1,4 +1,5 @@
 import React from 'react'
+import classnames from 'classnames'
 
 import Lorem from 'react-lorem-component'
 
@@ -6,13 +7,13 @@ import 'styles/components/basic/Popup.css'
 
 class Popup extends React.Component {
     render() {
-        console.log(this.props.testing);
+        const buttonClassNames = classnames('fa', 'fa-window-close', 'Popup__close')
 
         return (
-            <div className="popup">
-                <div className="popup_inner">
-                <button onClick={this.props.closePopup}>close me</button>
-                <Lorem count="3"/>
+            <div className="Popup__container">
+                <div className="Popup__container--inner">
+                <i onClick={this.props.closePopup} className={buttonClassNames} aria-hidden="true"></i>
+                {this.props.contents}
                 </div>
             </div>
         );

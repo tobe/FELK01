@@ -6,10 +6,7 @@ import 'styles/components/pages/home.css'
 
 class Home extends React.Component {
     state = {
-        showPopup: false, // Show the filters popup in mobile
-        genres: [],
-        resellers: [],
-        platforms: []
+        showPopup: false // Show the filters popup in mobile
     }
 
     checkboxes = {
@@ -25,6 +22,14 @@ class Home extends React.Component {
         // This is needed because generateCheckboxes calls the checkboxes variable.
         // It needs to be bound in order for the call to succeed -- otherwise we get undefined context.
         this.generateCheckboxes = this.generateCheckboxes.bind(this);
+        this.updateCheckbox = this.updateCheckbox.bind(this);
+
+        // Set our all initial filters
+        for(var checkbox in this.checkboxes) {
+            this.checkboxes[checkbox].forEach((k, v) => {
+                this.state[k] = false;
+            });
+        }
     }
 
     togglePopup() {
@@ -33,19 +38,39 @@ class Home extends React.Component {
         });
     }
 
+    firstLetterUppercase(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
+    updateCheckbox(event) {
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
+        const id = target.id;
+
+        this.setState({
+            [id]: value
+        });
+    }
+
     generateCheckboxes() {     
         let data = this.checkboxes; // Object.keys cannot act directly upon an object   
 
         return (
-            <div>
+            <div className="Home__filter-wrapper">
                 {
                     Object.keys(data).map((item, i) => (
                         <div key={i}>
-                        <h3>{item}</h3>
+                        <h3>{this.firstLetterUppercase(item)}</h3>
                             {
                                 // .map needs to return... ~1.5h wasted on this.
                                 data[item].map((k, v) => {
-                                    return (<div key={k}>gg</div>)
+                                    return (
+                                        <div key={k} className="md-checkbox">
+                                            <input id={k} type="checkbox" checked={this.state[k]} onChange={this.updateCheckbox} />
+                                            <label htmlFor={k}>{k}</label>
+                                        </div>
+                                    )
                                 })
                             }
                         </div>
@@ -69,7 +94,12 @@ class Home extends React.Component {
         return(
             <div className="maincontainer">
                 <aside>
-                    <button onClick={this.togglePopup.bind(this)}>show popup</button>
+                    <button className="Home__filter Home__filter--mobile" onClick={this.togglePopup.bind(this)}>
+                        <i className="fa fa-filter" aria-hidden="true"></i>Filters
+                    </button>
+                    <div className="Home__filter Home__filter--desktop">
+                        {this.generateCheckboxes()}
+                    </div>
                 </aside>
                 <main className="main">
                     <div className="my_flex">A</div>
@@ -77,13 +107,14 @@ class Home extends React.Component {
                     <div className="my_flex">C</div>
                 </main>
 
-            {this.generateCheckboxes()}
-
             {
                 this.state.showPopup ? 
                     <Popup
                     handler = {this.handler}
-                    testing = {this.state}
+                    /* Since generateCheckboxes is bound to Home, it will act upon it when called from
+                    Popup. And modify Home's state. However, this completely contradicts any logic
+                    from... sane programming languages. Nonetheless, this is a godsend here. */
+                    contents = {this.generateCheckboxes()}
                     /* We could have ommited using .bind here if we had used it
                        up there in the constructor, e.g.: this.togglePopup = this.togglePopup.bind(this)
                        so we'd end up using exclusively this.togglePopup here */

@@ -1,4 +1,4 @@
-.popup {
+.Poup__container {
     position: fixed;
     width: 100%;
     height: 100%;
@@ -7,9 +7,9 @@
     right: 0;
     bottom: 0;
     margin: auto;
-    background-color: rgba(0,0,0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
 }
-.popup_inner {
+.Popup__container--inner {
     position: absolute;
     left: 5%;
     right: 5%;
@@ -18,4 +18,11 @@
     margin: auto;
     background: white;
     overflow: scroll;
+    padding: .5rem;
+    border-radius: .5rem;
+}
+
+.Popup__close {
+    float: right;
+    font-size: 2rem;
 }
