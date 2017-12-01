@@ -2,13 +2,15 @@ import React from 'react'
 
 import Popup from 'components/basic/Popup.jsx'
 import GameFilter from 'components/basic/GameFilter.jsx'
+const data = require('../../data/games.json');
 const checkboxes = require('../../data/checkboxes.json');
 
 import 'styles/components/pages/home.css'
 
 class Home extends React.Component {
     state = {
-        showPopup: false // Show the filters popup in mobile
+        showPopup: false, // Show the filters popup in mobile
+        items: []
     }
 
     /*checkboxes = {
@@ -25,7 +27,6 @@ class Home extends React.Component {
         // This is needed because generateCheckboxes calls the checkboxes variable.
         // It needs to be bound in order for the call to succeed -- otherwise we get undefined context.
         this.generateCheckboxes = this.generateCheckboxes.bind(this);
-        this.updateCheckbox = this.updateCheckbox.bind(this);
 
         // Set our all initial filters
         for(var checkbox in this.checkboxes) {
@@ -35,33 +36,65 @@ class Home extends React.Component {
         }
     }
 
+    componentWillMount() {
+        this.setState({items: data});
+    }
+
     togglePopup() {
         this.setState({
             showPopup: !this.state.showPopup
         });
     }
 
+    arrayContains(needle, haystack) {
+        return (haystack.indexOf(needle) > -1);
+    }
+
     firstLetterUppercase(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
+    listUpdated() {
+        // Let's start of with an empty list
+        let updatedList = data;
+        let anyChecked = false; // Keep track if any checkboxes are checked
+        updatedList = updatedList.filter((game) => {
+            let satisfiedCriteria = false;
+            for(var checkbox in checkboxes) {
+                checkboxes[checkbox].forEach((criteria) => {
+                    //console.log(checkbox + ": " + criteria);
+                    console.log(this.state);
+                    if(this.state[criteria] == true) {
+                        anyChecked = true;
+                        console.log(criteria + ' is checked!');
+                        // Check if game has in array
+                        if(this.arrayContains(criteria, game[checkbox])) {
+                            console.log(game.name + " has " + criteria);
+                            satisfiedCriteria = true;
+                        }
+                    }
+                });
+            }
+            return satisfiedCriteria;
+        });
+
+        // Check if the list is empty and nothing has been checked -> show all :)
+        if(updatedList.length == 0 && !anyChecked) {
+            updatedList = data;
+        }
+
+        console.log("NEW UPDATED LIST:");
+        console.log(updatedList);
+        this.setState({items: updatedList});
     }
 
     updateCheckboxFromParent(checkbox) {
         let value = !this.state[checkbox];
         this.setState({
             [checkbox]: value,
-        });
-    }
-
-    updateCheckbox(event) {
-        console.log("UPDATE CHECKBOX");
-        const target = event.target;
-        const value = target.type === 'checkbox' ? target.checked : target.value;
-        const name = target.name;
-        const id = target.id;
-
-        this.setState({
-            [id]: value
-        });
+        }, this.listUpdated); // Second parameter here gets called AFTER the state has been updated
+        // These things tend to happen really fast and this took me a while to debug :(
+        // (Function would get hit but the state wouldn't update as fast! React is pretty fast.)
     }
 
     generateCheckboxes() {     
@@ -105,7 +138,7 @@ class Home extends React.Component {
                     </div>
                 </aside>
                 <main className="main">
-                    <GameFilter state = {this.state} />
+                    <GameFilter state = {this.state} updatedList = {this.state.items} />
                 </main>
 
             {

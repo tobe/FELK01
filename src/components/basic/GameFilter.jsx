@@ -5,7 +5,7 @@ const checkboxes = require('../../data/checkboxes.json');
 
 import 'styles/components/basic/GameFilter.css'
 
-class GameFilter extends React.Component {
+class GameFilter extends React.Component {
     checkboxList = [];
 
     constructor() {
@@ -24,40 +24,22 @@ class GameFilter extends React.Component {
         // We start with the list of all games.
         this.updatedList = data;
 
-        this.componentDidUpdate = this.componentDidUpdate.bind(this);
+        //this.componentDidUpdate = this.componentDidUpdate.bind(this);
     }
 
     arrayContains(needle, haystack) {
         return (haystack.indexOf(needle) > -1);
     }
 
+    componentWillMount() {
+        this.setState({items: data});
+    }
+
     /**
      * Gets triggered each time the parent state gets updated.
      * The React lifecycle.
      */
-    componentDidUpdate() {
-        /*console.log('Component did update!');
-        console.log(this.props.state);*/
-
-        /*this.updatedList = data;
-        let result = this.updatedList.filter((game) => {
-            let testing = false;
-            for(var checkbox in checkboxes) {
-                checkboxes[checkbox].forEach((criteria) => {
-                    //console.log(checkbox + ": " + criteria);
-                    if(this.props.state[criteria] == true) {
-                        //console.log(criteria + ' is checked!');
-                        // Check if game has in array
-                        if(this.arrayContains(criteria, game[checkbox])) {
-                            console.log(game.name + " has " + criteria);
-                            testing = true;
-                        }
-                    }
-                });
-            }
-            return testing;
-        });*/
-
+    /*componentDidUpdate() {
         this.updatedList = data;
         this.updatedList = this.updatedList.filter((game) => {
             let satisfiedCriteria = false;
@@ -83,13 +65,18 @@ class GameFilter extends React.Component {
 
         console.log("NEW UPDATED LIST:");
         console.log(this.updatedList);
-    }
+        this.setState({items: this.updatedList});
+    }*/
 
     render() {
         return (
             <div>
-                {/*console.log(data)*/}
                 <span className="testing">Hello from GameFilter</span>
+                {
+                    this.props.updatedList.map((item) => {
+                        return <li key={item.name}>{item.name}</li>
+                    })
+                }
             </div>
         );
     }
