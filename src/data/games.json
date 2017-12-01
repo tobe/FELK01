@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Counter Strike Global Offensive",
+        "genres": ["Action", "FPS"],
+        "resellers": ["Steam", "G2A"],
+        "platforms": ["PC", "Mac"]
+    },
+    {
+        "name": "PLAYERUNKNOWN'S BATTLEGROUNDS",
+        "genres": ["Action", "Adventure", "FPS"],
+        "resellers": ["Steam"],
+        "platforms": ["PC"]
+    }
+]

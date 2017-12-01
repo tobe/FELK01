@@ -1,6 +1,8 @@
 import React from 'react'
 
 import Popup from 'components/basic/Popup.jsx'
+import GameFilter from 'components/basic/GameFilter.jsx'
+const checkboxes = require('../../data/checkboxes.json');
 
 import 'styles/components/pages/home.css'
 
@@ -9,14 +11,16 @@ class Home extends React.Component {
         showPopup: false // Show the filters popup in mobile
     }
 
-    checkboxes = {
+    /*checkboxes = {
         genres: ['Action', 'Adventure', 'Arcade', 'MMO', 'MoBA', 'FPS', 'RTS'],
         resellers: ['Steam', 'Origin', 'G2A', 'Google', 'Apple'],
         platforms: ['PC', 'Mac', 'Android', 'iOS', 'Playstation', 'Xbox']
-    }
+    }*/
 
     constructor() {
         super();
+        // Checkboxes from the file
+        this.checkboxes = checkboxes;
 
         // This is needed because generateCheckboxes calls the checkboxes variable.
         // It needs to be bound in order for the call to succeed -- otherwise we get undefined context.
@@ -39,20 +43,6 @@ class Home extends React.Component {
 
     firstLetterUppercase(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
-    }
-
-    logging(element) {
-        console.log('works?');
-        let event = new Event('click', { bubbles: false });
-        this.refs[element].dispatchEvent(event);
-        /*console.log(element);
-        console.log(this.refs);
-        console.log(this.refs[element]);*/
-        //this.refs[element].click();
-        //console.log('checked: ' + this.myinput.checked);
-        //this.myinput.click();
-        /*let event = new Event('click', { bubbles: false });
-        this.myinput.dispatchEvent(event);*/
     }
 
     updateCheckboxFromParent(checkbox) {
@@ -115,9 +105,7 @@ class Home extends React.Component {
                     </div>
                 </aside>
                 <main className="main">
-                    <div className="my_flex">A</div>
-                    <div className="my_flex">Main</div>
-                    <div className="my_flex">C</div>
+                    <GameFilter state = {this.state} />
                 </main>
 
             {

@@ -1,0 +1,5 @@
+{
+    "genres": ["Action", "Adventure", "Arcade", "MMO", "MoBA", "FPS", "RTS"],
+    "resellers": ["Steam", "Origin", "G2A", "Google", "Apple"],
+    "platforms": ["PC", "Mac", "Android", "iOS", "Playstation", "Xbox"]
+}
