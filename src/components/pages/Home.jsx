@@ -56,20 +56,10 @@ class Home extends React.Component {
     }
 
     updateCheckboxFromParent(checkbox) {
-        let target = this.refs[checkbox];
-        /*console.log(target);
-        const value = target.type === 'checkbox' ? target.checked : target.value;
-        const name = target.name;
-        const id = target.id;
-
-        this.setState({
-            [id]: value
-        });*/
         let value = !this.state[checkbox];
         this.setState({
             [checkbox]: value,
         });
-        //this.state[checkbox] = !this.state[checkbox];
     }
 
     updateCheckbox(event) {
@@ -96,15 +86,11 @@ class Home extends React.Component {
                             {
                                 // .map needs to return... ~1.5h wasted on this.
                                 data[item].map((k, v) => {
-                                    let testy = {
-                                        marginLeft: '-.5rem',
-                                        cursor: 'pointer'
-                                    };
                                     return (
-                                        <div key={k} id="testing" style={testy} onClick={(e) => {this.updateCheckboxFromParent(k)}}>
-                                            <div style={{marginLeft: '.5rem'}} /*key={k}*/ className="md-checkbox">
+                                        <div key={k} className="Home__checkbox-wrapper" onClick={(e) => {this.updateCheckboxFromParent(k)}}>
+                                            <div style={{marginLeft: '.5rem'}} className="md-checkbox">
                                                 <input readOnly ref={k} id={k} type="checkbox" checked={this.state[k]} /*onChange={this.updateCheckbox}*/ />
-                                                <label /*htmlFor={k}*/>{k}</label>
+                                                <label>{k}</label>
                                             </div>
                                         </div>
                                     )
@@ -115,16 +101,6 @@ class Home extends React.Component {
                 }
             </div>
         )
-    }
-
-    /**
-     * Updates the component's state. We need this in order to pass it around
-     * to child components.
-     * @param {*} e 
-     */
-    handler(e) {
-        e.preventDefault();
-        this.setState(e);
     }
 
     render() {
