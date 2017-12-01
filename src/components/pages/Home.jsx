@@ -10,71 +10,82 @@ import 'styles/components/pages/home.css'
 class Home extends React.Component {
     state = {
         showPopup: false, // Show the filters popup in mobile
-        items: []
+        items: [] // Here we will store the filtered games
     }
-
-    /*checkboxes = {
-        genres: ['Action', 'Adventure', 'Arcade', 'MMO', 'MoBA', 'FPS', 'RTS'],
-        resellers: ['Steam', 'Origin', 'G2A', 'Google', 'Apple'],
-        platforms: ['PC', 'Mac', 'Android', 'iOS', 'Playstation', 'Xbox']
-    }*/
 
     constructor() {
         super();
-        // Checkboxes from the file
-        this.checkboxes = checkboxes;
 
         // This is needed because generateCheckboxes calls the checkboxes variable.
         // It needs to be bound in order for the call to succeed -- otherwise we get undefined context.
         this.generateCheckboxes = this.generateCheckboxes.bind(this);
 
         // Set our all initial filters
-        for(var checkbox in this.checkboxes) {
-            this.checkboxes[checkbox].forEach((k, v) => {
+        for(var checkbox in checkboxes) {
+            checkboxes[checkbox].forEach((k, v) => {
                 this.state[k] = false;
             });
         }
     }
 
+    /**
+     * Sets the items (games) to all available once the component mounts.
+     */
     componentWillMount() {
         this.setState({items: data});
     }
 
+    /**
+     * Toggles the popup.
+     */
     togglePopup() {
         this.setState({
             showPopup: !this.state.showPopup
         });
     }
 
+    /**
+     * Looks for needle in the haystack.
+     * @param {*sting} needle The needle
+     * @param {*array} haystack The haystack
+     */
     arrayContains(needle, haystack) {
         return (haystack.indexOf(needle) > -1);
     }
 
+    /**
+     * Makes the first letter of the string uppercase.
+     * @param {*string} string The string to uppercase the first letter of
+     */
     firstLetterUppercase(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
 
-    listUpdated() {
+    /**
+     * Updates the list of games based on filters.
+     */
+    updateGameList() {
         // Let's start of with an empty list
         let updatedList = data;
         let anyChecked = false; // Keep track if any checkboxes are checked
         updatedList = updatedList.filter((game) => {
             let satisfiedCriteria = false;
+            // Loop through all checkboxes and their values
             for(var checkbox in checkboxes) {
                 checkboxes[checkbox].forEach((criteria) => {
-                    //console.log(checkbox + ": " + criteria);
-                    console.log(this.state);
+                    // If the checkbox has been checked...
                     if(this.state[criteria] == true) {
+                        // At least 1 checkbox has been checked
                         anyChecked = true;
-                        console.log(criteria + ' is checked!');
-                        // Check if game has in array
+                        // Check if game has said checkbox in its array
                         if(this.arrayContains(criteria, game[checkbox])) {
-                            console.log(game.name + " has " + criteria);
+                            //console.log(game.name + " has " + criteria);
                             satisfiedCriteria = true;
                         }
                     }
                 });
             }
+            // Here we return true or false, since we iter through multiple categories
             return satisfiedCriteria;
         });
 
@@ -83,22 +94,28 @@ class Home extends React.Component {
             updatedList = data;
         }
 
-        console.log("NEW UPDATED LIST:");
-        console.log(updatedList);
+        // Set the state -> this will cause it to re-render
         this.setState({items: updatedList});
     }
 
+    /**
+     * Updates the checkbox value from the parent div
+     * @param {*string} checkbox The checkbox whose value needs to be updated
+     */
     updateCheckboxFromParent(checkbox) {
         let value = !this.state[checkbox];
         this.setState({
             [checkbox]: value,
-        }, this.listUpdated); // Second parameter here gets called AFTER the state has been updated
+        }, this.updateGameList); // Second parameter here gets called AFTER the state has been updated
         // These things tend to happen really fast and this took me a while to debug :(
         // (Function would get hit but the state wouldn't update as fast! React is pretty fast.)
     }
 
+    /**
+     * Generates checkboxes (HTML)
+     */
     generateCheckboxes() {     
-        let data = this.checkboxes; // Object.keys cannot act directly upon an object   
+        let data = checkboxes; // Object.keys cannot act directly upon an object   
 
         return (
             <div className="Home__filter-wrapper">
@@ -108,12 +125,12 @@ class Home extends React.Component {
                         <h3>{this.firstLetterUppercase(item)}</h3>
                             {
                                 // .map needs to return... ~1.5h wasted on this.
-                                data[item].map((k, v) => {
+                                data[item].map((key, value) => {
                                     return (
-                                        <div key={k} className="Home__checkbox-wrapper" onClick={(e) => {this.updateCheckboxFromParent(k)}}>
+                                        <div key={key} className="Home__checkbox-wrapper" onClick={(e) => {this.updateCheckboxFromParent(key)}}>
                                             <div style={{marginLeft: '.5rem'}} className="md-checkbox">
-                                                <input readOnly ref={k} id={k} type="checkbox" checked={this.state[k]} /*onChange={this.updateCheckbox}*/ />
-                                                <label>{k}</label>
+                                                <input readOnly ref={key} id={key} type="checkbox" checked={this.state[key]} />
+                                                <label>{key}</label>
                                             </div>
                                         </div>
                                     )

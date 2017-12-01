@@ -23,6 +23,7 @@
 }
 
 .Popup__close {
-    float: right;
+    position: fixed;
+    right: 2rem;
     font-size: 2rem;
 }
