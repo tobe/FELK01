@@ -10,5 +10,23 @@
         "genres": ["Action", "Adventure", "FPS"],
         "resellers": ["Steam"],
         "platforms": ["PC"]
+    },
+    {
+        "name": "The Sims 4",
+        "genres": ["RTS"],
+        "resellers": ["Google", "Apple"],
+        "platforms": ["PC", "Mac"]
+    },
+    {
+        "name": "The Sims 4",
+        "genres": ["RTS"],
+        "resellers": ["Google", "Apple"],
+        "platforms": ["PC", "Mac"]
+    },
+    {
+        "name": "The Sims 4",
+        "genres": ["RTS"],
+        "resellers": ["Google", "Apple"],
+        "platforms": ["PC", "Mac"]
     }
 ]

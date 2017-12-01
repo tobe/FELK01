@@ -1,84 +1,77 @@
 import React from 'react'
 import classnames from 'classnames'
-const data = require('../../data/games.json');
-const checkboxes = require('../../data/checkboxes.json');
 
 import 'styles/components/basic/GameFilter.css'
 
 class GameFilter extends React.Component {
-    checkboxList = [];
+    items = [];
 
     constructor() {
         super();
-
-        /* First we concatenate all the checkboxes into a single list from the
-           Object stored in the file. Ideally, this would be returned from an AJAX request.
-           This is so we can optimize the for loop down below.
-        */
-        for(var checkbox in checkboxes) {
-            checkboxes[checkbox].forEach((k, v) => {
-                this.checkboxList.push(k);
-            });
-        }
-
-        // We start with the list of all games.
-        this.updatedList = data;
-
-        //this.componentDidUpdate = this.componentDidUpdate.bind(this);
     }
 
-    arrayContains(needle, haystack) {
-        return (haystack.indexOf(needle) > -1);
+    chunk(array, size) {
+        return array.reduce((chunks, item, i) => {
+          if (i % size === 0) {
+            chunks.push([item]);
+          } else {  
+            chunks[chunks.length - 1].push(item);
+          }
+          return chunks;
+        }, []);
+      }
+
+    generateCard(game) {
+        return (
+            <div className="GameFilter__card">
+                <div className="GameFilter__card-heading">
+                    {game.name}
+                </div>
+                <div className="GameFilter__card-body">
+                    Lorem ipsum dolor sit amet
+                </div>
+                <div className="GameFilter__card-badges">
+                    badges
+                </div>
+            </div>
+        )
     }
-
-    componentWillMount() {
-        this.setState({items: data});
-    }
-
-    /**
-     * Gets triggered each time the parent state gets updated.
-     * The React lifecycle.
-     */
-    /*componentDidUpdate() {
-        this.updatedList = data;
-        this.updatedList = this.updatedList.filter((game) => {
-            let satisfiedCriteria = false;
-            for(var checkbox in checkboxes) {
-                checkboxes[checkbox].forEach((criteria) => {
-                    //console.log(checkbox + ": " + criteria);
-                    if(this.props.state[criteria] == true) {
-                        //console.log(criteria + ' is checked!');
-                        // Check if game has in array
-                        if(this.arrayContains(criteria, game[checkbox])) {
-                            console.log(game.name + " has " + criteria);
-                            satisfiedCriteria = true;
-                        }
-                    }
-                });
-            }
-            return satisfiedCriteria;
-        });
-
-        // Check if the list is empty -> nothing has been selected -> show all :)
-        if(this.updatedList.length == 0)
-            this.updatedList = data;
-
-        console.log("NEW UPDATED LIST:");
-        console.log(this.updatedList);
-        this.setState({items: this.updatedList});
-    }*/
 
     render() {
-        return (
-            <div>
+        let products = [];
+
+        this.props.updatedList.forEach(element => {
+            products.push(this.generateCard(element));
+        });
+
+        let rowContents = [];
+		const contents = products.reduce((acc, p, i) => {
+            if(i > 1) {
+            rowContents.push(p);
+			if (i % 3 == 1) {
+				acc.push(<div className="GameFilter__list">{rowContents}</div>);
+				rowContents = [];
+            }
+        }
+            return acc;
+		},[])
+       contents.push(<div className="GameFilter__list">{rowContents}</div>);
+
+		return (
+			<div>
+                <div className="GameFilter__search-wrapper">
+                    <input type="text" className="GameFilter__search-bar" placeholder="Enter a search term..." />
+                    <i className="fa fa-search" aria-hidden="true"></i>
+                </div>
                 <span className="testing">Hello from GameFilter</span>
-                {
-                    this.props.updatedList.map((item) => {
-                        return <li key={item.name}>{item.name}</li>
-                    })
-                }
-            </div>
-        );
+
+                <div className="GameFilter__list">
+                    {this.generateCard(this.props.updatedList[0])}
+                    {this.generateCard(this.props.updatedList[1])}
+                </div>
+			    {contents}
+			</div>
+		)
     }
 }
 

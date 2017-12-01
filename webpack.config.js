@@ -2,7 +2,8 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin  = require('html-webpack-plugin');
 const ExtractTextPlugin  = require('extract-text-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CopyWebpackPlugin  = require('copy-webpack-plugin');
 
 const isProduction = process.env.NODE_ENV === 'production';
 const cssDev = ['style-loader', 'css-loader'];
@@ -73,6 +74,7 @@ module.exports = {
             [
                 './public/*.js',
                 './public/*.css'
+                /* Should also remove all assets but whatever for now */
             ],
             { root: path.resolve(__dirname) }
         ),
@@ -81,6 +83,10 @@ module.exports = {
             filename: '[name].bundle.css',
             //disable: !isProduction
         }),
+
+        new CopyWebpackPlugin([
+            { from: './assets/*.*', to: './assets', flatten: false }
+        ]),
 
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NamedModulesPlugin(),

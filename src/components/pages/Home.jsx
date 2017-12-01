@@ -96,6 +96,7 @@ class Home extends React.Component {
 
         // Set the state -> this will cause it to re-render
         this.setState({items: updatedList});
+        console.log(updatedList);
     }
 
     /**
