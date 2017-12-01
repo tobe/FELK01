@@ -17,7 +17,6 @@ class Home extends React.Component {
 
     constructor() {
         super();
-        this.handler = this.handler.bind(this);
 
         // This is needed because generateCheckboxes calls the checkboxes variable.
         // It needs to be bound in order for the call to succeed -- otherwise we get undefined context.
@@ -42,7 +41,39 @@ class Home extends React.Component {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
 
+    logging(element) {
+        console.log('works?');
+        let event = new Event('click', { bubbles: false });
+        this.refs[element].dispatchEvent(event);
+        /*console.log(element);
+        console.log(this.refs);
+        console.log(this.refs[element]);*/
+        //this.refs[element].click();
+        //console.log('checked: ' + this.myinput.checked);
+        //this.myinput.click();
+        /*let event = new Event('click', { bubbles: false });
+        this.myinput.dispatchEvent(event);*/
+    }
+
+    updateCheckboxFromParent(checkbox) {
+        let target = this.refs[checkbox];
+        /*console.log(target);
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
+        const id = target.id;
+
+        this.setState({
+            [id]: value
+        });*/
+        let value = !this.state[checkbox];
+        this.setState({
+            [checkbox]: value,
+        });
+        //this.state[checkbox] = !this.state[checkbox];
+    }
+
     updateCheckbox(event) {
+        console.log("UPDATE CHECKBOX");
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
@@ -65,10 +96,16 @@ class Home extends React.Component {
                             {
                                 // .map needs to return... ~1.5h wasted on this.
                                 data[item].map((k, v) => {
+                                    let testy = {
+                                        marginLeft: '-.5rem',
+                                        cursor: 'pointer'
+                                    };
                                     return (
-                                        <div key={k} className="md-checkbox">
-                                            <input id={k} type="checkbox" checked={this.state[k]} onChange={this.updateCheckbox} />
-                                            <label htmlFor={k}>{k}</label>
+                                        <div key={k} id="testing" style={testy} onClick={(e) => {this.updateCheckboxFromParent(k)}}>
+                                            <div style={{marginLeft: '.5rem'}} /*key={k}*/ className="md-checkbox">
+                                                <input readOnly ref={k} id={k} type="checkbox" checked={this.state[k]} /*onChange={this.updateCheckbox}*/ />
+                                                <label /*htmlFor={k}*/>{k}</label>
+                                            </div>
                                         </div>
                                     )
                                 })
@@ -110,7 +147,6 @@ class Home extends React.Component {
             {
                 this.state.showPopup ? 
                     <Popup
-                    handler = {this.handler}
                     /* Since generateCheckboxes is bound to Home, it will act upon it when called from
                     Popup. And modify Home's state. However, this completely contradicts any logic
                     from... sane programming languages. Nonetheless, this is a godsend here. */
@@ -127,18 +163,5 @@ class Home extends React.Component {
         )
     }
 }
-
-/*const Home = () => (
-    <div className="maincontainer">
-        <aside>
-            Aside text
-        </aside>
-        <main className="main">
-            <div className="my_flex">A</div>
-            <div className="my_flex">Main</div>
-            <div className="my_flex">C</div>
-        </main>
-    </div>
-)*/
 
 export default Home
