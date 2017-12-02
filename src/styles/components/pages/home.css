@@ -3,10 +3,11 @@
 }
 
 .Home__filter {
-    font-size: .9rem;
+    font-size: 1.1rem;
 }
 
 .Home__checkbox-wrapper {
+    width: 70%;
     margin-left: -.5rem;
     cursor: pointer;
 }

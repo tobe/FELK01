@@ -32,7 +32,20 @@ class GameFilter extends React.Component {
         this.props.updateGames(newList);
     }
 
-    generatePill(resellers) {
+    generateGenres(genres) {
+        let output = [];
+        genres.forEach((genre) => {
+            output.push(
+                <span className="GameFilter__genre">
+                    {genre}
+                </span>
+            )
+        });
+
+        return output;
+    }
+
+    generateResellers(resellers) {
         let output = [];
         resellers.forEach((reseller) => {
             switch(reseller) {
@@ -80,11 +93,15 @@ class GameFilter extends React.Component {
     generateCard(game, full = false) {
         let cardClass = classnames({
             'GameFilter__card': 1,
-            'GameFilter__card--full': full
+            'GameFilter__card--full': full,
+        })
+        let headingClass = classnames({
+            'GameFilter__card-heading': 1,
+            'GameFilter__card-heading--full': full
         })
         return (
             <div className={cardClass}>
-                <div className="GameFilter__card-heading" style={{background: 'url(/assets/' + game.id + '.jpg) center / cover'}}>
+                <div className={headingClass} style={{background: 'url(/assets/' + game.id + '.jpg) center / cover'}}>
                     <div className="GameFilter__card-price">
                         {game.price}€
                     </div>
@@ -93,7 +110,12 @@ class GameFilter extends React.Component {
                     <h2>{game.name}</h2>
                 </div>
                 <div className="GameFilter__card-badges">
-                    {this.generatePill(game.resellers)}
+                    <div className="GameFilter__card-genres">
+                        {this.generateGenres(game.genres)}
+                    </div>
+                    <div className="GameFilter__card-genres">
+                        {this.generateResellers(game.resellers)}
+                    </div>
                 </div>
             </div>
         )
@@ -123,22 +145,11 @@ class GameFilter extends React.Component {
 		},[])
        contents.push(<div className="GameFilter__list">{rowContents}</div>);
 
-       // Featured games (two at the top)
-       /*let featured = [];
-       if(this.props.showAll) {
-            featured.push(this.generateCard(this.props.updatedList[0], true));
-            featured.push(this.generateCard(this.props.updatedList[1], true));
-       }*/
-
        return (
             <div>
                 <div className="GameFilter__search-wrapper">
                     <input type="text" className="GameFilter__search-bar" placeholder="Enter a search term..." onChange={this.searchGames} />
                     <i className="fa fa-search" aria-hidden="true"></i>
-                </div>
-
-                <div className="GameFilter__list">
-                    {/*featured*/}
                 </div>
 
                 {contents}

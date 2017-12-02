@@ -40,8 +40,9 @@
     display: flex;
     flex: 1 0 300px;
     flex-direction: column;
+    align-self: center;
     font-size: 16px;
-    height: 250px;
+    height: 80%;
     max-width: 400px;
     overflow: hidden;
     position: relative; /* For the wishlist */
@@ -54,7 +55,6 @@
 }
 .GameFilter__card--full {
     max-width: 50%;
-    height: 300px;
 }
 .GameFilter__card-heading {
     display: flex;
@@ -63,6 +63,9 @@
     background-position: center;
     background-size: cover;
 }
+.GameFilter__card-heading--full {
+    height: 300px;
+}
 .GameFilter__card-body {
     padding: .5rem 0 0 .5rem;
 }
@@ -70,8 +73,13 @@
     font-size: 1.2rem;
 }
 .GameFilter__card-badges {
-    padding: .5rem;
-    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.GameFilter__card-genres {
+    padding-left: .5rem;
 }
 .GameFilter__card-price {
     position: absolute;
@@ -83,8 +91,8 @@
 }
 .GameFilter__badge {
     display: inline-block;
-    padding: .25em .4em;
-    font-size: .8rem;
+    padding: .35rem .65rem;
+    font-size: .9rem;
     text-transform: uppercase;
     line-height: 1;
     text-align: center;
@@ -92,6 +100,9 @@
     border-radius: .25rem;
     margin-right: .5rem;
     color: #FFF;
+    font-weight: 700;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
 }
 .GameFilter__badge--steam {
     background: #171a21;
@@ -107,4 +118,17 @@
 }
 .GameFilter__badge--apple {
     background: rgb(102, 102, 102);
+}
+
+.GameFilter__genre {
+    line-height: 32px;
+    font-weight: 700;
+    padding: 0 12px;
+    border: 0;
+    background: #dedede;
+    text-transform: uppercase;
+    display: inline-block;
+    color: rgba(0, 0, 0, .87);
+    margin: 2px 0;
+    margin-right: .5rem;
 }

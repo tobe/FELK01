@@ -151,15 +151,6 @@ button:active {
     padding-left: .5rem;
 }
 
-@media screen and (min-width: 576px)  {
-    .md-checkbox label {
-        vertical-align: sub;
-    }
-    :-moz-any(label) {
-        vertical-align: super !important;
-    }
-}
-
 .md-checkbox label:before, .md-checkbox label:after {
     content: "";
     position: absolute;
