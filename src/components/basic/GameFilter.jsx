@@ -21,14 +21,18 @@ class GameFilter extends React.Component {
         }, []);
       }
 
-    generateCard(game) {
+    generateCard(game, full = false) {
+        let cardClass = classnames({
+            'GameFilter__card': 1,
+            'GameFilter__card--full': full
+        })
         return (
-            <div className="GameFilter__card">
-                <div className="GameFilter__card-heading">
-                    {game.name}
+            <div className={cardClass}>
+                <div className="GameFilter__card-heading" style={{background: 'url(/assets/' + game.id + '.jpg) center / cover'}}>
+
                 </div>
                 <div className="GameFilter__card-body">
-                    Lorem ipsum dolor sit amet
+                    <h2>{game.name}</h2>
                 </div>
                 <div className="GameFilter__card-badges">
                     badges
@@ -38,40 +42,52 @@ class GameFilter extends React.Component {
     }
 
     render() {
-        let products = [];
-
+        // Will hold all game objects to render
+        let games = [];
+        let i = 0;
         this.props.updatedList.forEach(element => {
-            products.push(this.generateCard(element));
+            if(i <= 1)
+                games.push(this.generateCard(element, true));
+            else
+                games.push(this.generateCard(element));
+            i++;
         });
 
+        // Render a row of three games if we haven't selected all (no featured games)
         let rowContents = [];
-		const contents = products.reduce((acc, p, i) => {
-            if(i > 1) {
-            rowContents.push(p);
-			if (i % 3 == 1) {
-				acc.push(<div className="GameFilter__list">{rowContents}</div>);
-				rowContents = [];
+		const contents = games.reduce((acc, p, i) => {
+            if(i > 1 || !this.props.showAll) {
+                rowContents.push(p);
+                if (i % 3 == 1) { // three per row
+                    acc.push(<div className="GameFilter__list">{rowContents}</div>);
+                    rowContents = [];
+                }
             }
-        }
             return acc;
 		},[])
        contents.push(<div className="GameFilter__list">{rowContents}</div>);
 
-		return (
-			<div>
+       // Featured games (two at the top)
+       let featured = [];
+       if(this.props.showAll) {
+            featured.push(this.generateCard(this.props.updatedList[0], true));
+            featured.push(this.generateCard(this.props.updatedList[1], true));
+       }
+
+       return (
+            <div>
                 <div className="GameFilter__search-wrapper">
                     <input type="text" className="GameFilter__search-bar" placeholder="Enter a search term..." />
                     <i className="fa fa-search" aria-hidden="true"></i>
                 </div>
-                <span className="testing">Hello from GameFilter</span>
 
                 <div className="GameFilter__list">
-                    {this.generateCard(this.props.updatedList[0])}
-                    {this.generateCard(this.props.updatedList[1])}
+                    {featured}
                 </div>
-			    {contents}
-			</div>
-		)
+
+                {contents}
+            </div>
+        )
     }
 }
 

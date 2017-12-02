@@ -1,32 +1,44 @@
 [
     {
+        "id": 1,
         "name": "Counter Strike Global Offensive",
         "genres": ["Action", "FPS"],
         "resellers": ["Steam", "G2A"],
         "platforms": ["PC", "Mac"]
     },
     {
+        "id": 2,
         "name": "PLAYERUNKNOWN'S BATTLEGROUNDS",
         "genres": ["Action", "Adventure", "FPS"],
         "resellers": ["Steam"],
         "platforms": ["PC"]
     },
     {
-        "name": "The Sims 4",
-        "genres": ["RTS"],
-        "resellers": ["Google", "Apple"],
-        "platforms": ["PC", "Mac"]
+        "id": 3,
+        "name": "Assassin's Creed: Origins",
+        "genres": ["Action", "Adventure"],
+        "resellers": ["Steam", "G2A"],
+        "platforms": ["PC", "Playstation", "Xbox"]
     },
     {
-        "name": "The Sims 4",
-        "genres": ["RTS"],
-        "resellers": ["Google", "Apple"],
-        "platforms": ["PC", "Mac"]
+        "id": 4,
+        "name": "Grand Theft Auto: San Andreas",
+        "genres": ["Action", "Adventure"],
+        "resellers": ["Steam", "G2A", "Google", "Apple"],
+        "platforms": ["PC", "Playstation", "Xbox", "Mac", "iOS", "Android"]
     },
     {
-        "name": "The Sims 4",
-        "genres": ["RTS"],
+        "id": 5,
+        "name": "FIFA 18",
+        "genres": ["Action", "RTS"],
+        "resellers": ["Origin"],
+        "platforms": ["PC", "Playstation", "Xbox"]
+    },
+    {
+        "id": 6,
+        "name": "Minecraft",
+        "genres": ["MMO", "Action", "Adventure"],
         "resellers": ["Google", "Apple"],
-        "platforms": ["PC", "Mac"]
+        "platforms": ["PC", "Playstation", "Xbox", "Mac", "iOS", "Android"]
     }
 ]

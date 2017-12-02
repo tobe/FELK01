@@ -10,6 +10,7 @@ import 'styles/components/pages/home.css'
 class Home extends React.Component {
     state = {
         showPopup: false, // Show the filters popup in mobile
+        showAll: true, // Show all items at the beginning
         items: [] // Here we will store the filtered games
     }
 
@@ -92,10 +93,11 @@ class Home extends React.Component {
         // Check if the list is empty and nothing has been checked -> show all :)
         if(updatedList.length == 0 && !anyChecked) {
             updatedList = data;
+            this.setState({showAll: true});
         }
 
         // Set the state -> this will cause it to re-render
-        this.setState({items: updatedList});
+        this.setState({items: updatedList, showAll: false});
         console.log(updatedList);
     }
 
@@ -156,7 +158,7 @@ class Home extends React.Component {
                     </div>
                 </aside>
                 <main className="main">
-                    <GameFilter state = {this.state} updatedList = {this.state.items} />
+                    <GameFilter state = {this.state} updatedList = {this.state.items} showAll = {this.state.showAll} />
                 </main>
 
             {

@@ -31,27 +31,57 @@
 
 .GameFilter__list {
     display: flex;
-    flex-direction: row;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+}
+
+.GameFilter__list:last-child {
+    margin-right: 0;
 }
 
 .GameFilter__card {
     display: flex;
-    flex: 0 512px;
-    max-width: 512px;
+    flex: 1;
     flex-direction: column;
     font-size: 16px;
-    min-height: 200px;
+    height: 250px;
+    max-width: 400px;
     overflow: hidden;
     position: relative; /* For the wishlist */
+    box-shadow: 0 3px 3px 0 rgba(0,0,0,.14), 0 4px 2px -1px rgba(0,0,0,.2), 0 2px 6px 0 rgba(0,0,0,.12);
+    margin: 1rem;
+}
+.GameFilter__card--full {
+    max-width: 50%;
+    height: 300px;
 }
 .GameFilter__card-heading {
+    display: flex;
     color: #FFF;
-    height: 150px;
-    background: url('/assets/csgo.jpg') center / cover;
+    height: 230px; /* ne diraj */
+    background-position: center;
+    background-size: cover;
 }
+/*.GameFilter__card-heading > h2{
+    display: flex;
+    align-self: flex-end;
+}*/
 .GameFilter__card-body {
-    background: #000;
+    padding: .5rem;
 }
 .GameFilter__card-badges {
+    flex-grow: 1;
     background: #FF0000;
+}
+
+.GameFilter__badge {
+    display: inline-block;
+    padding: .25em .4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem;
 }
