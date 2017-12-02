@@ -8,6 +8,8 @@ class GameFilter extends React.Component {
 
     constructor() {
         super();
+
+        this.searchGames = this.searchGames.bind(this);
     }
 
     chunk(array, size) {
@@ -21,6 +23,60 @@ class GameFilter extends React.Component {
         }, []);
       }
 
+    searchGames(event) {
+        let newList = this.props.initialList;
+        newList = newList.filter(function(item){
+            return item.name.toLowerCase().search(
+              event.target.value.toLowerCase()) !== -1;
+          });
+        this.props.updateGames(newList);
+    }
+
+    generatePill(resellers) {
+        let output = [];
+        resellers.forEach((reseller) => {
+            switch(reseller) {
+                case "Steam":
+                    output.push(
+                        <span className="GameFilter__badge GameFilter__badge--steam">
+                            <i className="fa fa-steam" aria-hidden="true"></i>&nbsp;Steam
+                        </span>
+                    )
+                break;
+                case "Origin":
+                    output.push(
+                        <span className="GameFilter__badge GameFilter__badge--origin">
+                            <i className="fa fa-opera" aria-hidden="true"></i>&nbsp;Origin
+                        </span>
+                    )
+                break;
+                case "Google":
+                    output.push(
+                        <span className="GameFilter__badge GameFilter__badge--google">
+                            <i className="fa fa-google" aria-hidden="true"></i>&nbsp;Google
+                        </span>
+                    )
+                break;
+                case "Apple":
+                    output.push(
+                        <span className="GameFilter__badge GameFilter__badge--apple">
+                            <i className="fa fa-apple" aria-hidden="true"></i>&nbsp;Apple
+                        </span>
+                    )
+                break;
+                case "G2A":
+                    output.push(
+                        <span className="GameFilter__badge GameFilter__badge--g2a">
+                            G2A
+                        </span>
+                    )
+                break;
+            }
+        });
+
+        return output;
+    }
+
     generateCard(game, full = false) {
         let cardClass = classnames({
             'GameFilter__card': 1,
@@ -29,13 +85,15 @@ class GameFilter extends React.Component {
         return (
             <div className={cardClass}>
                 <div className="GameFilter__card-heading" style={{background: 'url(/assets/' + game.id + '.jpg) center / cover'}}>
-
+                    <div className="GameFilter__card-price">
+                        {game.price}€
+                    </div>
                 </div>
                 <div className="GameFilter__card-body">
                     <h2>{game.name}</h2>
                 </div>
                 <div className="GameFilter__card-badges">
-                    badges
+                    {this.generatePill(game.resellers)}
                 </div>
             </div>
         )
@@ -56,33 +114,31 @@ class GameFilter extends React.Component {
         // Render a row of three games if we haven't selected all (no featured games)
         let rowContents = [];
 		const contents = games.reduce((acc, p, i) => {
-            if(i > 1 || !this.props.showAll) {
                 rowContents.push(p);
-                if (i % 3 == 1) { // three per row
+                if (i == 1) {
                     acc.push(<div className="GameFilter__list">{rowContents}</div>);
                     rowContents = [];
                 }
-            }
             return acc;
 		},[])
        contents.push(<div className="GameFilter__list">{rowContents}</div>);
 
        // Featured games (two at the top)
-       let featured = [];
+       /*let featured = [];
        if(this.props.showAll) {
             featured.push(this.generateCard(this.props.updatedList[0], true));
             featured.push(this.generateCard(this.props.updatedList[1], true));
-       }
+       }*/
 
        return (
             <div>
                 <div className="GameFilter__search-wrapper">
-                    <input type="text" className="GameFilter__search-bar" placeholder="Enter a search term..." />
+                    <input type="text" className="GameFilter__search-bar" placeholder="Enter a search term..." onChange={this.searchGames} />
                     <i className="fa fa-search" aria-hidden="true"></i>
                 </div>
 
                 <div className="GameFilter__list">
-                    {featured}
+                    {/*featured*/}
                 </div>
 
                 {contents}

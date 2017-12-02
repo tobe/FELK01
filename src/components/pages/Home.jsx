@@ -21,6 +21,9 @@ class Home extends React.Component {
         // It needs to be bound in order for the call to succeed -- otherwise we get undefined context.
         this.generateCheckboxes = this.generateCheckboxes.bind(this);
 
+        // Since this method will be called from the child compoentn, we need to bind it to this (parent)
+        this.updateGamesFromSearch = this.updateGamesFromSearch.bind(this);
+
         // Set our all initial filters
         for(var checkbox in checkboxes) {
             checkboxes[checkbox].forEach((k, v) => {
@@ -114,6 +117,10 @@ class Home extends React.Component {
         // (Function would get hit but the state wouldn't update as fast! React is pretty fast.)
     }
 
+    updateGamesFromSearch(newList) {
+        this.setState({items: newList});
+    }
+
     /**
      * Generates checkboxes (HTML)
      */
@@ -158,7 +165,12 @@ class Home extends React.Component {
                     </div>
                 </aside>
                 <main className="main">
-                    <GameFilter state = {this.state} updatedList = {this.state.items} showAll = {this.state.showAll} />
+                    <GameFilter state = {this.state}
+                                updatedList = {this.state.items}
+                                showAll = {this.state.showAll}
+                                updateGames = {this.updateGamesFromSearch}
+                                initialList = {data}
+                    />
                 </main>
 
             {

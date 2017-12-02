@@ -4,41 +4,63 @@
         "name": "Counter Strike Global Offensive",
         "genres": ["Action", "FPS"],
         "resellers": ["Steam", "G2A"],
-        "platforms": ["PC", "Mac"]
+        "platforms": ["PC", "Mac"],
+        "price": 15
     },
     {
         "id": 2,
         "name": "PLAYERUNKNOWN'S BATTLEGROUNDS",
         "genres": ["Action", "Adventure", "FPS"],
         "resellers": ["Steam"],
-        "platforms": ["PC"]
+        "platforms": ["PC"],
+        "price": 30
     },
     {
         "id": 3,
         "name": "Assassin's Creed: Origins",
         "genres": ["Action", "Adventure"],
         "resellers": ["Steam", "G2A"],
-        "platforms": ["PC", "Playstation", "Xbox"]
+        "platforms": ["PC", "Playstation", "Xbox"],
+        "price": 50
     },
     {
         "id": 4,
         "name": "Grand Theft Auto: San Andreas",
         "genres": ["Action", "Adventure"],
         "resellers": ["Steam", "G2A", "Google", "Apple"],
-        "platforms": ["PC", "Playstation", "Xbox", "Mac", "iOS", "Android"]
+        "platforms": ["PC", "Playstation", "Xbox", "Mac", "iOS", "Android"],
+        "price": 15
     },
     {
         "id": 5,
         "name": "FIFA 18",
         "genres": ["Action", "RTS"],
         "resellers": ["Origin"],
-        "platforms": ["PC", "Playstation", "Xbox"]
+        "platforms": ["PC", "Playstation", "Xbox"],
+        "price": 50
     },
     {
         "id": 6,
         "name": "Minecraft",
         "genres": ["MMO", "Action", "Adventure"],
         "resellers": ["Google", "Apple"],
-        "platforms": ["PC", "Playstation", "Xbox", "Mac", "iOS", "Android"]
+        "platforms": ["PC", "Playstation", "Xbox", "Mac", "iOS", "Android"],
+        "price": 24
+    },
+    {
+        "id": 7,
+        "name": "Need for Speed: Payback",
+        "genres": ["Action", "Adventure"],
+        "resellers": ["Origin"],
+        "platforms": ["PC", "Playstation", "Xbox"],
+        "price": 40
+    },
+    {
+        "id": 8,
+        "name": "Dota 2",
+        "genres": ["Action", "RTS", "MMO", "MoBA"],
+        "resellers": ["Steam"],
+        "platforms": ["PC", "Mac"],
+        "price": 0
     }
 ]

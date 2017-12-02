@@ -25,6 +25,9 @@ body {
     font-size: 1rem;
     color: #444;
 }
+input {
+    font-family: 'Open Sans', 'Segoe UI', 'Calibri', sans-serif;
+}
 
 .container {
     display: flex;
