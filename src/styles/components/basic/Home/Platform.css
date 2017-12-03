@@ -1,0 +1,6 @@
+ .Platform {
+    background: rgba(0, 0, 0, .7);
+    padding: .2rem;
+    font-size: 2rem;
+    text-shadow: 1px 1px 2px black;   
+}

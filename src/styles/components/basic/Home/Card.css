@@ -1,6 +1,6 @@
 .Card {
     display: flex;
-    flex: 1 0 300px;
+    flex: 1 0 350px;
     flex-direction: column;
     align-self: center;
     font-size: 16px;
@@ -11,13 +11,17 @@
     box-shadow: 0 3px 3px 0 rgba(0,0,0,.14), 0 4px 2px -1px rgba(0,0,0,.2), 0 2px 6px 0 rgba(0,0,0,.12);
     margin: 1rem;
 }
+
 .Card:hover {
     cursor: pointer;
     box-shadow: 0 5px 5px 0 rgba(0,0,0,.14), 0 5px 3px -1px rgba(0,0,0,.5), 0 3px 7px 0 rgba(0,0,0,.14)
 }
+
 .Card--full {
     max-width: 50%;
 }
+
+
 .Card-heading {
     display: flex;
     color: #FFF;
@@ -28,12 +32,16 @@
 .Card-heading--full {
     height: 300px;
 }
+
+
 .Card-body {
     padding: .5rem 0 0 .5rem;
 }
 .Card-body > h2{
     font-size: 1.2rem;
 }
+
+
 .Card-specs {
     display: flex;
     align-items: center;
@@ -41,9 +49,13 @@
     flex-wrap: wrap;
     padding-bottom: .2rem;
 }
+
+
 .Card-props {
     padding-left: .5rem;
 }
+
+
 .Card-price {
     position: absolute;
     right: 0;
@@ -51,4 +63,10 @@
     font-size: 2rem;
     background: rgba(0, 0, 0, .7);
     text-shadow: 1px 1px 2px black;     
+}
+
+.Card-platforms {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-end;
 }

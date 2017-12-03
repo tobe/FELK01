@@ -3,6 +3,7 @@ import classnames from 'classnames'
 
 import Badge from 'components/basic/Home/Badge.jsx'
 import Pill from 'components/basic/Home/Pill.jsx'
+import Platform from 'components/basic/Home/Platform.jsx'
 
 import 'styles/components/basic/Home/Card.css'
 
@@ -28,6 +29,7 @@ class Card extends React.Component {
                     <div className="Card-price">
                         {this.props.game.price}€
                     </div>
+                    <Platform platforms = {this.props.game.platforms} />
                 </div>
                 <div className="Card-body">
                     <h2>{this.props.game.name}</h2>

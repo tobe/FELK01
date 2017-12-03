@@ -12,7 +12,7 @@ class Pill extends React.Component {
         let output = [];
         this.props.genres.forEach((genre) => {
             output.push(
-                <span className="Pill">
+                <span key={genre} className="Pill">
                     {genre}
                 </span>
             )

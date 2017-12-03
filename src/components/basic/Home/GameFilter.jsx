@@ -39,9 +39,9 @@ class GameFilter extends React.Component {
         let i = 0;
         this.props.updatedList.forEach(element => {
             if(i <= 1)
-                games.push(<Card game = {element} full = {true} />);
+                games.push(<Card key={i} game = {element} full = {true} />);
             else
-                games.push(<Card game = {element} full = {false} />);
+                games.push(<Card key={i} game = {element} full = {false} />);
             i++;
         });
 
@@ -50,12 +50,12 @@ class GameFilter extends React.Component {
 		const contents = games.reduce((acc, p, i) => {
                 rowContents.push(p);
                 if (i == 1) {
-                    acc.push(<div className="GameFilter__list">{rowContents}</div>);
+                    acc.push(<div key={i} className="GameFilter__list">{rowContents}</div>);
                     rowContents = [];
                 }
             return acc;
 		},[])
-       contents.push(<div className="GameFilter__list">{rowContents}</div>);
+       contents.push(<div key={-1} className="GameFilter__list">{rowContents}</div>);
 
        return (
             <div>
