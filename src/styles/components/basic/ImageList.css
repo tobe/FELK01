@@ -1,0 +1,19 @@
+.ImageList {
+    display: flex;
+    width: 100%;
+}
+
+.ImageList__mainImage {
+    
+}
+.ImageList__images {
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.ImageList__image {
+
+}
+.ImageList__image--selected {
+    border: 3px solid #000;
+}
