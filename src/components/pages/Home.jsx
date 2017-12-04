@@ -14,6 +14,7 @@ class Home extends React.Component {
     state = {
         showPopup: false, // Show the filters popup in mobile
         showAll: true, // Show all items at the beginning
+        showError: false, // Show error if nothing matches the criteria
         items: [] // Here we will store the filtered games
     }
 
@@ -61,6 +62,10 @@ class Home extends React.Component {
     updateGameList() {
         // Let's start of with an empty list
         let updatedList = data;
+
+        // Remove any errors
+        this.setState({showError: false});
+
         let anyChecked = false; // Keep track if any checkboxes are checked
         updatedList = updatedList.filter((game) => {
             let satisfiedCriteria = false;
@@ -88,6 +93,8 @@ class Home extends React.Component {
             updatedList = data;
             this.setState({showAll: true});
         }
+        if(updatedList.length == 0 && anyChecked)
+            this.setState({showError: true});
 
         // Set the state -> this will cause it to re-render
         this.setState({items: updatedList, showAll: false});

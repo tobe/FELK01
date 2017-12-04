@@ -1,12 +1,11 @@
 .Badge {
     display: inline-block;
-    padding: .35rem .65rem;
-    font-size: .9rem;
+    padding: 3px 5px 3px 5px;
+    font-size: .8rem;
     text-transform: uppercase;
-    line-height: 1;
     text-align: center;
     vertical-align: baseline;
-    border-radius: .25rem;
+    border-radius: .2rem;
     margin-right: .5rem;
     color: #FFF;
     font-weight: 700;
