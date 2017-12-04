@@ -15,6 +15,7 @@ import Nav from 'components/basic/Nav.jsx'
 import Home from 'components/pages/Home.jsx'
 import About from 'components/pages/About.jsx'
 import News from 'components/pages/News.jsx'
+import Game from 'components/pages/Game.jsx'
 import Private from 'components/pages/Private.jsx'
 import PrivateRoute from 'components/basic/PrivateRoute.jsx'
 import LoginForm from 'components/basic/LoginForm.jsx'
@@ -50,10 +51,11 @@ const App = () => (
             </header>
 
             {/*<Route exact path="/" render={() => <Redirect to='/home'/>} />*/}
-            <Route exact path="/" component={Home} />
-            {/*<Route path="/home" component={Home} />*/}
+            {/*<Route exact path="/" component={Home} />*/}
+            {<Route path="/home" component={Home} />}
             <Route path="/about" component={About}/>
             <Route path="/news" component={News}/>
+            {<Route exact path="/" component={Game} />}
             <Route exact path="/login" render={() => 
                 <LoginForm 
                     private="/private"

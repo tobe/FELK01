@@ -1,0 +1,48 @@
+.Game__maincontainer {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 100%;
+}
+
+@supports (display: grid) {
+    @media screen and (min-width: 576px)  {
+        .Game__maincontainer {
+            grid-area: maincontainer;
+
+            display: grid;
+            grid-template-columns: 4fr 1fr;
+            grid-template-areas: 
+                "main aside";
+        }
+    }
+}
+
+.Game__splashimage {
+    display: flex;
+    width: 100%;
+    min-height: 300px;
+}
+/*.Game__splashimage > h1 {
+    align-self: flex-end;
+    font-size: 2rem;
+    color: #FFF;
+    margin: 1rem;
+}*/
+.Game__info {
+    margin: 1rem;
+    line-height: 1.5rem;
+}
+.Game__info > h1 {
+    line-height: 1;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+}
+.Game__info blockquote {
+    margin-bottom: 1rem;
+    font-style: italic;
+    text-align: justify;
+}
+.Game__info p {
+    text-align: justify;
+}
