@@ -1,4 +1,5 @@
 import React from 'react'
+import classnames from 'classnames'
 
 import 'styles/components/basic/ImageList.css'
 
@@ -18,22 +19,23 @@ class ImageList extends React.Component {
     }
 
     render() {
+        console.log(this.props);
         let mainImage = this.state.selectedImage ? this.state.selectedImage : this.props.images[0];
 
         return (
             <div className="ImageList">
-                <div className="ImageList__mainImage">
-                    
+                <div className="ImageList__mainImage" style={{background: 'url(' + mainImage + ') center / cover'}}>
+                
                 </div>
                 <div className="ImageList__images">
                     {
-                        this.props.images.forEach(image => {
+                        this.props.images.map(image => {
                             const imageClasses = classnames({
                                 'ImageList__image' : 1,
                                 'ImageList__image--selected': mainImage == image
                             });
                             return (
-                                <img key={image} className={imageClasses} onClick={this.handleClick} />
+                                <div key={image} style={{background: 'url(' + image + ') center / cover'}} className={imageClasses} onClick={this.handleClick}></div>
                             )  
                         })
                     }
