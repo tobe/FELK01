@@ -8,15 +8,30 @@ import Platform from 'components/basic/Home/Platform.jsx'
 import 'styles/components/basic/Home/Card.css'
 
 class Card extends React.Component {
+    state = {
+        startTransition: false
+    }
+
     constructor() {
         super();
         
+        this.startTransition = this.startTransition.bind(this);
+    }
+
+    componentDidMount() {
+        setTimeout(this.startTransition, 10);
+    }
+
+    startTransition() {
+        this.setState({startTransition: true});
     }
 
     render() {
         let cardClass = classnames({
             'Card': 1,
+            'transition--start': 1,
             'Card--full': this.props.full,
+            'transition--end': this.state.startTransition
         })
         let headingClass = classnames({
             'Card-heading': 1,
