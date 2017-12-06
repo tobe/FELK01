@@ -5,17 +5,25 @@ import 'styles/components/basic/Game/ImageList.css'
 
 class ImageList extends React.Component {
     state = {
-        selectedImage: ''
+        selectedImage: '',
+        startTransition: false
     }
 
     constructor() {
         super();
 
         this.handleThumbnailClick = this.handleThumbnailClick.bind(this);
+        this.startTransition = this.startTransition.bind(this);
     }
 
     componentDidMount() {
         this.setState({selectedImage: this.props.images[0]});
+
+        setTimeout(this.startTransition, 100);
+    }
+
+    startTransition() {
+        this.setState({startTransition: true});
     }
 
     handleButtonClick(direction) {
@@ -34,7 +42,12 @@ class ImageList extends React.Component {
             break;
         }
 
-        this.setState({selectedImage: this.props.images[newIndex]});
+        this.setState({
+            startTransition: false,
+            selectedImage: this.props.images[newIndex]
+        }, () => {
+            setTimeout(this.startTransition, 200);
+        });
     }
 
     handleThumbnailClick(e) {
@@ -43,15 +56,27 @@ class ImageList extends React.Component {
         // Whatever...
         // see: https://stackoverflow.com/questions/31273093/how-to-add-custom-html-attributes-in-jsx
         console.log(e.target.id);
-        this.setState({selectedImage: e.target.id});
+
+        this.setState({
+            startTransition: false,
+            selectedImage: e.target.id
+        }, () => {
+            setTimeout(this.startTransition, 200);
+        });
     }
 
     render() {
         let mainImage = this.state.selectedImage ? this.state.selectedImage : this.props.images[0];
 
+        let mainImageStyles = classnames({
+            'ImageList__mainImage': 1,
+            'transition--start': 1,
+            'transition--end': this.state.startTransition
+        });
+
         return (
             <div className="ImageList">
-                <div className="ImageList__mainImage" style={{background: 'url(' + mainImage + ') center / cover'}}>
+                <div className={mainImageStyles} style={{background: 'url(' + mainImage + ') center / cover'}}>
                     <i 
                         className="fa fa-chevron-circle-left ImageList__mainImage-button ImageList__mainImage-button--left"
                         aria-hidden="true"
