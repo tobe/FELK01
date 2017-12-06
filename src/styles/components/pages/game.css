@@ -23,12 +23,6 @@
     width: 100%;
     min-height: 300px;
 }
-/*.Game__splashimage > h1 {
-    align-self: flex-end;
-    font-size: 2rem;
-    color: #FFF;
-    margin: 1rem;
-}*/
 .Game__info {
     margin: 1rem;
     line-height: 1.5rem;

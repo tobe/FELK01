@@ -5,9 +5,25 @@
 }
 
 .ImageList__mainImage {
+    position: relative; /* so we can display the arrows */
     align-self: center;
     height: 300px;
     width: 100%;
+    flex-grow: 1;
+}
+.ImageList__mainImage-button {
+    position: absolute;
+    top: 45%;
+    font-size: 3rem;
+    color: rgba(255, 255, 255, .5);
+    cursor: pointer;
+}
+.ImageList__mainImage-button--left {
+    margin-left: .5rem;
+}
+.ImageList__mainImage-button--right {
+    margin-right: .5rem;
+    right: 0;
 }
 
 .ImageList__images {
@@ -19,8 +35,10 @@
 }
 
 .ImageList__image {
+    cursor: pointer;
+    background-repeat: no-repeat;
     border: 1px solid transparent;
-    width: 150px;
+    flex-grow: 1; /* omg so responsiveeeeee */
     height: 100px;
     margin-right: .5rem;
     margin-bottom: .5rem;

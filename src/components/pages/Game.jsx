@@ -1,6 +1,6 @@
 import React from 'react'
 
-import ImageList from "components/basic/ImageList.jsx";
+import ImageList from "components/basic/Game/ImageList.jsx";
 
 import 'styles/components/pages/game.css'
 
