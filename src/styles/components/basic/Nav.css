@@ -73,7 +73,7 @@
 
 .Nav--active {
     color: white;
-    background-color: var(--bg-color-active, --Nav-bg-color-active);
+    background-color: rgba(255, 255, 255, 0.127);
 }
 
 @media screen and (min-width: 576px) {
