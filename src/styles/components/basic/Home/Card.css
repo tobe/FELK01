@@ -11,6 +11,12 @@
     box-shadow: 0 3px 3px 0 rgba(0,0,0,.14), 0 4px 2px -1px rgba(0,0,0,.2), 0 2px 6px 0 rgba(0,0,0,.12);
     margin: 1rem;
 }
+@media screen and (max-width: 576px) {
+    .Card {
+        flex: 1 100%;
+        max-width: 100%;
+    }
+}
 
 .Card:hover {
     cursor: pointer;
@@ -19,6 +25,11 @@
 
 .Card--full {
     max-width: 50%;
+}
+@media screen and (max-width: 576px) {
+    .Card--full {
+        max-width: 100%;
+    }   
 }
 
 
