@@ -17,6 +17,7 @@ console.log('::: Senses Fail :::');
 
 module.exports = {
     entry: {
+        'vendor': ['react', 'react-dom'],
         'app': './src/index.js'
     },
 
