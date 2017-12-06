@@ -7,7 +7,8 @@ import 'styles/main.css'
 import 'font-awesome/css/font-awesome.min.css'
 
 import {
-    BrowserRouter as Router,
+    /*BrowserRouter as Router,*/
+    HashRouter as Router,
     Route,
     Redirect
 } from 'react-router-dom'  
@@ -21,7 +22,7 @@ import Private from 'components/pages/Private.jsx'
 import PrivateRoute from 'components/basic/PrivateRoute.jsx'
 import LoginForm from 'components/basic/LoginForm.jsx'
 
-const links = ['Home', 'About', 'News', 'Private']
+const links = ['Home', 'Game', 'News', 'Private']
 
 //------------------------------------
 // Faking an authentication service
@@ -51,12 +52,11 @@ const App = () => (
                 <Nav mobile links={links} authenticator={authenticator}/>
             </header>
 
-            {/*<Route exact path="/" render={() => <Redirect to='/home'/>} />*/}
-            {/*<Route exact path="/" component={Home} />*/}
+            {<Route exact path="/" render={() => <Redirect to='/home'/>} />}
             {<Route path="/home" component={Home} />}
-            <Route path="/about" component={About}/>
+            <Route path="/game" component={Game}/>
             <Route path="/news" component={News}/>
-            {<Route exact path="/" component={Game} />}
+            {/*<Route exact path="/" component={Game} />*/}
             <Route exact path="/login" render={() => 
                 <LoginForm 
                     private="/private"
