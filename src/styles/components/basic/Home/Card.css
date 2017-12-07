@@ -2,10 +2,8 @@
     display: flex;
     flex: 1 0 350px;
     flex-direction: column;
-    align-self: center;
     font-size: 16px;
-    height: 80%;
-    max-width: 400px;
+    max-width: 50%;
     overflow: hidden;
     position: relative; /* For the wishlist */
     box-shadow: 0 3px 3px 0 rgba(0,0,0,.14), 0 4px 2px -1px rgba(0,0,0,.2), 0 2px 6px 0 rgba(0,0,0,.12);
@@ -22,10 +20,10 @@
     cursor: pointer;
     box-shadow: 0 5px 5px 0 rgba(0,0,0,.14), 0 5px 3px -1px rgba(0,0,0,.5), 0 3px 7px 0 rgba(0,0,0,.14)
 }
-
 .Card--full {
     max-width: 50%;
 }
+
 @media screen and (max-width: 576px) {
     .Card--full {
         max-width: 100%;
@@ -36,7 +34,7 @@
 .Card-heading {
     display: flex;
     color: #FFF;
-    height: 230px; /* ne diraj */
+    height: 300px; /* ne diraj */
     background-position: center;
     background-size: cover;
 }
@@ -48,8 +46,8 @@
 .Card-body {
     padding: .5rem 0 0 .5rem;
 }
-.Card-body > h2{
-    font-size: 1.3rem;
+.Card-body > h2 {
+    font-size: 1rem;
     font-weight: 700;
 }
 

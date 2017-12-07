@@ -26,7 +26,7 @@
     {
         "id": 4,
         "name": "Grand Theft Auto: San Andreas",
-        "genres": ["Action", "Adventure"],
+        "genres": ["Action"],
         "resellers": ["Steam", "G2A", "Google", "Apple"],
         "platforms": ["PC", "Playstation", "Xbox", "Mac", "iOS", "Android"],
         "price": 15
@@ -42,7 +42,7 @@
     {
         "id": 6,
         "name": "Minecraft",
-        "genres": ["MMO", "Action", "Adventure"],
+        "genres": ["MMO", "Adventure"],
         "resellers": ["Google", "Apple"],
         "platforms": ["PC", "Playstation", "Xbox", "Mac", "iOS", "Android"],
         "price": 24

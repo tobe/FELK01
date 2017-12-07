@@ -46,12 +46,14 @@ class Card extends React.Component {
                     </div>
                     <Platform platforms = {this.props.game.platforms} />
                 </div>
-                <div className="Card-body">
-                    <h2>{this.props.game.name}</h2>
-                </div>
-                <div className="Card-specs">
-                    <Pill genres = {this.props.game.genres} />
-                    <Badge resellers = {this.props.game.resellers} />
+                <div>
+                    <div className="Card-body">
+                        <h2>{this.props.game.name}</h2>
+                    </div>
+                    <div className="Card-specs">
+                        <Pill genres = {this.props.game.genres} />
+                        <Badge resellers = {this.props.game.resellers} />
+                    </div>
                 </div>
             </div>
         )

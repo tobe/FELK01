@@ -91,7 +91,10 @@ module.exports = {
         new CopyWebpackPlugin([
             { from: './assets/*.*', to: './assets', flatten: false }
         ]),
-
+        new webpack.optimize.CommonsChunkPlugin({
+            name: ['vendor'],
+            minChunks: Infinity
+        }),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NamedModulesPlugin(),
         new webpack.NoEmitOnErrorsPlugin()         
