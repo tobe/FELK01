@@ -48,7 +48,7 @@ class GameFilter extends React.Component {
 
         // Push an error if we're empty -> no cards
         if(this.props.state.showError)
-            games.push(<Error key={-1} text = "No games match your criteria ¯\_(ツ)_/¯" />)
+            games.push(<Error key={-1} text = "No games match your criteria" />)
 
         // Render a row of three games if we haven't selected all (no featured games)
         let rowContents = [];

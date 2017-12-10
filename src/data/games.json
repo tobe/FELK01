@@ -5,7 +5,8 @@
         "genres": ["Action", "FPS"],
         "resellers": ["Steam", "G2A"],
         "platforms": ["PC", "Mac"],
-        "price": 15
+        "price": 15,
+        "players": 326259
     },
     {
         "id": 2,
@@ -13,7 +14,8 @@
         "genres": ["Action", "Adventure", "FPS"],
         "resellers": ["Steam"],
         "platforms": ["PC"],
-        "price": 30
+        "price": 30,
+        "players": 1408626
     },
     {
         "id": 3,
@@ -21,7 +23,8 @@
         "genres": ["Action", "Adventure"],
         "resellers": ["Steam", "G2A"],
         "platforms": ["PC", "Playstation", "Xbox"],
-        "price": 50
+        "price": 50,
+        "players": 10635
     },
     {
         "id": 4,
@@ -29,7 +32,8 @@
         "genres": ["Action"],
         "resellers": ["Steam", "G2A", "Google", "Apple"],
         "platforms": ["PC", "Playstation", "Xbox", "Mac", "iOS", "Android"],
-        "price": 15
+        "price": 15,
+        "players": 769
     },
     {
         "id": 5,
@@ -37,7 +41,8 @@
         "genres": ["Action", "RTS"],
         "resellers": ["Origin"],
         "platforms": ["PC", "Playstation", "Xbox"],
-        "price": 50
+        "price": 50,
+        "players": 10376
     },
     {
         "id": 6,
@@ -45,7 +50,8 @@
         "genres": ["MMO", "Adventure"],
         "resellers": ["Google", "Apple"],
         "platforms": ["PC", "Playstation", "Xbox", "Mac", "iOS", "Android"],
-        "price": 24
+        "price": 24,
+        "players": 10376
     },
     {
         "id": 7,
@@ -53,7 +59,8 @@
         "genres": ["Action", "Adventure"],
         "resellers": ["Origin"],
         "platforms": ["PC", "Playstation", "Xbox"],
-        "price": 40
+        "price": 40,
+        "players": 9786
     },
     {
         "id": 8,
@@ -61,6 +68,7 @@
         "genres": ["Action", "RTS", "MMO", "MoBA"],
         "resellers": ["Steam"],
         "platforms": ["PC", "Mac"],
-        "price": 0
+        "price": 0,
+        "players": 489710
     }
 ]

@@ -3,6 +3,7 @@ import React from 'react'
 import Popup from 'components/basic/Popup.jsx'
 import GameFilter from 'components/basic/Home/GameFilter.jsx'
 import Checkbox from 'components/basic/Home/Checkbox.jsx'
+import Sort from 'components/basic/Home/Sort.jsx'
 import {arrayContains, firstLetterUppercase} from 'helpers.jsx'
 
 import 'styles/components/pages/home.css'
@@ -26,7 +27,7 @@ class Home extends React.Component {
         this.generateCheckboxes = this.generateCheckboxes.bind(this);
 
         // Since this method will be called from the child compoentn, we need to bind it to this (parent)
-        this.updateGamesFromSearch = this.updateGamesFromSearch.bind(this);
+        this.updateGamesFromChild = this.updateGamesFromChild.bind(this);
 
         // Had to add this because this function is called from Checkbox.jsx and we have to tell react
         // to act upon this exact class and not Checkbox!
@@ -44,6 +45,14 @@ class Home extends React.Component {
      * Sets the items (games) to all available once the component mounts.
      */
     componentWillMount() {
+        /* TODO: Should actually call the method from child component (Sort) and sort in updateGamList
+        *every time* depending on the chosen <option> in the Sort's render. Why? Because, each time
+        A list of games is updated, it will be *ensured* it's sorted, even if we, e.g: swap checkboxes, search
+        swap checkboxes back and delete. But, since this is a PoC, I believe it's good as is. */
+        data.sort((a, b) => {
+            return (a.players < b.players) ? 1 : ((b.players < a.players) ? -1 : 0);
+        });
+
         this.setState({items: data});
     }
 
@@ -93,6 +102,8 @@ class Home extends React.Component {
             updatedList = data;
             this.setState({showAll: true});
         }
+
+        // We have something checked, but nothing in the array, show an error.
         if(updatedList.length == 0 && anyChecked)
             this.setState({showError: true});
 
@@ -115,7 +126,11 @@ class Home extends React.Component {
         // (Function would get hit but the state wouldn't update as fast! React is pretty fast.)
     }
 
-    updateGamesFromSearch(newList) {
+    /**
+     * Updates the currently available games a child component (Sort, GameFilter)
+     * @param {*array} newList A list of new games to display
+     */
+    updateGamesFromChild(newList) {
         this.setState({items: newList});
     }
 
@@ -156,6 +171,11 @@ class Home extends React.Component {
                     <button className="Home__filter Home__filter--mobile" onClick={this.togglePopup.bind(this)}>
                         <i className="fa fa-filter" aria-hidden="true"></i>Filters
                     </button>
+
+                    <Sort items = {this.state.items}
+                          updateGames = {this.updateGamesFromChild}
+                    />
+
                     <div className="Home__filter Home__filter--desktop">
                         {this.generateCheckboxes()}
                     </div>
@@ -164,7 +184,7 @@ class Home extends React.Component {
                     <GameFilter state = {this.state}
                                 updatedList = {this.state.items}
                                 showAll = {this.state.showAll}
-                                updateGames = {this.updateGamesFromSearch}
+                                updateGames = {this.updateGamesFromChild}
                                 initialList = {data}
                     />
                 </main>
@@ -172,14 +192,14 @@ class Home extends React.Component {
             {
                 this.state.showPopup ? 
                     <Popup
-                    /* Since generateCheckboxes is bound to Home, it will act upon it when called from
-                    Popup. And modify Home's state. However, this completely contradicts any logic
-                    from... sane programming languages. Nonetheless, this is a godsend here. */
-                    contents = {this.generateCheckboxes()}
-                    /* We could have ommited using .bind here if we had used it
-                       up there in the constructor, e.g. this.togglePopup = this.togglePopup.bind(this)
-                       so we'd end up using exclusively this.togglePopup here */
-                    closePopup={this.togglePopup.bind(this)}
+                        /* Since generateCheckboxes is bound to Home, it will act upon it when called from
+                        Popup. And modify Home's state. However, this completely contradicts any logic
+                        from... sane programming languages. Nonetheless, this is a godsend here. */
+                        contents = {this.generateCheckboxes()}
+                        /* We could have ommited using .bind here if we had used it
+                        up there in the constructor, e.g. this.togglePopup = this.togglePopup.bind(this)
+                        so we'd end up using exclusively this.togglePopup here */
+                        closePopup={this.togglePopup.bind(this)}
                     />
                 :
                     null

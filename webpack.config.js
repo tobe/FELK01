@@ -83,14 +83,19 @@ module.exports = {
             { root: path.resolve(__dirname) }
         ),
 
+        // I like my CSS files grouped yeah and not inlined
         new ExtractTextPlugin({
             filename: '[name].bundle.css',
             //disable: !isProduction
         }),
 
+        // Copies all the assets to /public/assets/...
+        // Flatten is false since this is just a PoC anyway, flip to true in prod.
         new CopyWebpackPlugin([
             { from: './assets/*.*', to: './assets', flatten: false }
         ]),
+
+        // So we don't get React twice lol haha
         new webpack.optimize.CommonsChunkPlugin({
             name: ['vendor'],
             minChunks: Infinity

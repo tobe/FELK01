@@ -65,9 +65,19 @@ header > span.name {
 }
 
 aside {
+    margin-top: 1rem;
     min-width: 200px;
-    border-bottom: 1px solid #EEE;
     padding: .5rem;
+}
+
+@media screen and (max-width: 576px)  {
+    aside {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: .5rem;
+        margin-bottom: .5rem;
+    }
 }
 
 footer {
