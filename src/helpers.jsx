@@ -1,6 +1,6 @@
 /**
  * Looks for needle in the haystack.
- * @param {*sting} needle The needle
+ * @param {*string} needle The needle
  * @param {*array} haystack The haystack
  */
 export const arrayContains = (needle, haystack) => {

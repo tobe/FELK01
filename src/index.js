@@ -56,7 +56,6 @@ const App = () => (
             {<Route path="/home" component={Home} />}
             <Route path="/game" component={Game}/>
             <Route path="/news" component={News}/>
-            {/*<Route exact path="/" component={Game} />*/}
             <Route exact path="/login" render={() => 
                 <LoginForm 
                     private="/private"

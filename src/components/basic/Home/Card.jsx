@@ -1,4 +1,5 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 import classnames from 'classnames'
 
 import Badge from 'components/basic/Home/Badge.jsx'
@@ -26,6 +27,10 @@ class Card extends React.Component {
         this.setState({startTransition: true});
     }
 
+    redirectToGame(id) {
+        this.props.history.push({pathname: '/game/' + id});
+    }
+
     render() {
         let cardClass = classnames({
             'Card': 1,
@@ -39,7 +44,7 @@ class Card extends React.Component {
         })
 
         return (
-            <div className={cardClass}>
+            <div className={cardClass} onClick={() => this.redirectToGame(this.props.game.id) }>
                 <div className={headingClass} style={{background: 'url(/assets/' + this.props.game.id + '.jpg) center / cover'}}>
                     <div className="Card-price">
                         {this.props.game.price}€
@@ -60,4 +65,4 @@ class Card extends React.Component {
     }
 }
 
-export default Card
+export default withRouter(Card)

@@ -6,8 +6,9 @@ import 'styles/components/pages/game.css'
 
 class Game extends React.Component {
     images = [];
+    selectedGame = 0;
 
-    constructor() {
+    constructor(props) {
         super();
 
         this.images = [
@@ -18,6 +19,14 @@ class Game extends React.Component {
             'assets/5.jpg',
             'assets/6.jpg'
         ];
+
+        // Whatever https://github.com/ReactTraining/react-router/issues/4410
+        this.selectedGame = parseInt(props.location.pathname.split('/').slice(-1)[0]);
+        if(isNaN(this.selectedGame))
+            console.log('TODO: error here');
+
+        // all good here
+        console.log(this.selectedGame);
     }
 
     render() {
@@ -37,14 +46,13 @@ class Game extends React.Component {
                         <ImageList images = {this.images} />
                     </div>
                 </main>
-                <aside>
-                    <ul>
-                        <li>Item1</li>
-                        <li>Item1</li>
-                        <li>Item1</li>
-                        <li>Item1</li>
-                        <li>Item1</li>
-                    </ul>
+                <aside className="Game__aside">
+                    <div className="Game__aside--pricing">
+                        Pricing goes here
+                    </div>
+                    <div className="Game__aside--specs">
+                        Specs go here
+                    </div>
                 </aside>
             </div>
         )

@@ -40,3 +40,7 @@
 .Game__info p {
     text-align: justify;
 }
+
+.Game__aside {
+    justify-content: flex-start;
+}
