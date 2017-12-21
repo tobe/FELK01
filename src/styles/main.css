@@ -34,9 +34,14 @@ input {
     flex-direction: column;
     justify-content: space-between;
     width:  100vw;
-    height: 100%;
+    height: 100vh;
     margin: 0 auto;
     max-width: 100%;
+}
+@media screen and (max-width: 576px)  {
+    .container {
+        height: 100%;
+    }
 }
 
 header {

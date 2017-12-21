@@ -14,3 +14,24 @@ export const arrayContains = (needle, haystack) => {
 export const firstLetterUppercase = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
+
+/**
+ * Generates a random emoticon
+ */
+export const GenerateEmote = () => {
+    const emotes = [
+        '¯\\_(ツ)_/¯',
+        '(·.·)',
+        '(≥o≤)',
+        '(·_·)',
+        '(;-;)',
+        '(^_^)b',
+        '(>_<)',
+        '\\(^Д^)/',
+        '(˚Δ˚)b',
+        '\\(o_o)/',
+        '(o^^)o'
+    ];
+
+    return emotes[Math.floor(Math.random() * emotes.length)];
+}

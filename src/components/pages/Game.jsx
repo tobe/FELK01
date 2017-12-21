@@ -1,4 +1,5 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 
 import ImageList from "components/basic/Game/ImageList.jsx";
 
@@ -22,8 +23,10 @@ class Game extends React.Component {
 
         // Whatever https://github.com/ReactTraining/react-router/issues/4410
         this.selectedGame = parseInt(props.location.pathname.split('/').slice(-1)[0]);
-        if(isNaN(this.selectedGame))
-            console.log('TODO: error here');
+        if(isNaN(this.selectedGame) || this.selectedGame < 0 || this.selectedGame > 8) {
+            props.history.push({pathname: '/404'});
+            return;
+        }
 
         // all good here
         console.log(this.selectedGame);
@@ -34,7 +37,6 @@ class Game extends React.Component {
             <div className="Game__maincontainer">
                 <main className="main">
                     <div className="Game__splashimage" style={{background: 'url(/assets/1/splash.jpg) center / cover'}}>
-                    {/*<h1>Counter-strike: Global Offensive</h1>*/}
                     </div>
                     <div className="Game__info">
                         <h1>Counter-strike: Global Offensive</h1>
@@ -59,4 +61,4 @@ class Game extends React.Component {
     }
 }
 
-export default Game
+export default withRouter(Game)

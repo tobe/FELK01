@@ -64,12 +64,12 @@ class GameFilter extends React.Component {
 
         return (
             <div>
-            <div className="GameFilter__search-wrapper">
-            <input type="text" className="GameFilter__search-bar" placeholder="Enter a search term..." onChange={this.searchGames} />
-            <i className="fa fa-search" aria-hidden="true"></i>
-            </div>
+                <div className="GameFilter__search-wrapper">
+                <input type="text" className="GameFilter__search-bar" placeholder="Enter a search term..." onChange={this.searchGames} />
+                <i className="fa fa-search" aria-hidden="true"></i>
+                </div>
 
-            {contents}
+                {contents}
             </div>
         )
     }
