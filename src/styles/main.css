@@ -144,10 +144,16 @@ button {
     letter-spacing: 1px;
     font-weight: 300;
     cursor: pointer;
+    font-family: 'Open Sans', 'Segoe UI', 'Calibri', sans-serif;
 }
 
-button:active {
-    background-color: rgba(160, 160, 160, .10);
+.btn-green {
+    background-color: #27ae60;
+    color: #FFF;
+}
+.btn-blue {
+    background-color: #2980b9;
+    color: #FFF;
 }
 
 /* Checkboxes */

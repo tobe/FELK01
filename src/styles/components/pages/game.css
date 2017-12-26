@@ -11,7 +11,7 @@
             grid-area: maincontainer;
 
             display: grid;
-            grid-template-columns: 4fr 1fr;
+            grid-template-columns: 6fr 2fr;
             grid-template-areas: 
                 "main aside";
         }
@@ -43,4 +43,77 @@
 
 .Game__aside {
     justify-content: flex-start;
+}
+@media screen and (max-width: 576px)  {
+    .Game__aside {
+        flex-direction: column;
+    }
+}
+
+.Game__aside--price {
+    display: flex;
+    justify-content: center;
+    font-size: 4rem;
+    padding-bottom: .5rem;
+}
+.Game__aside--platforms {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Game__aside--platforms > i {
+    padding-left: 1.5rem;
+    font-size: 2.5rem;
+}
+.Game__aside--platforms > .fa-windows {
+    color: #2d89ef;
+}
+.Game__aside--platforms > .fa-apple {
+    color: #999999;
+}
+
+.Game__aside--data {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    font-size: .9rem;
+}
+.Game__aside--details-row {
+    display: flex;
+    flex-direction: row;
+}
+.Game__aside--specs-row {
+    display: flex;
+    flex-direction: column;
+    margin-top: .5rem;
+}
+.Game__aside--data-row--title {
+    text-transform: uppercase;
+    font-weight: 700;
+    width: 110px;
+}
+@media screen and (min-width: 576px) and (max-width: 1024px) {
+    .Game__aside--data-row--title {
+        width: 100px;
+    }
+    .Game__aside--data-row--contents {
+        font-size: .8rem;
+    }
+}
+
+.Game__aside--buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    margin-top: 1rem;
+}
+.Game__aside--buttons > button {
+    width: 210px;
+    padding: .8rem;
+    font-size: 1rem;
+    margin-top: 1.5rem;
+    border-radius: 3px;
+    font-weight: 700;
 }

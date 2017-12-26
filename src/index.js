@@ -93,7 +93,9 @@ class App extends React.Component {
         
                     {<Route exact path="/" render={() => <Redirect to='/home'/>} />}
                     <Route path="/home" component={Home} />
-                    <Route path="/game" component={Game} />
+                    <Route path="/game" render={() => 
+                        <Game authenticator={authenticator} />
+                    } />
                     <Route path="/news" component={News} />
                     <Route path="/404"  component={PageNotFound} />
                     <Route exact path="/login" render={() => 

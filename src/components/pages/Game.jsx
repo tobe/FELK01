@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom'
 import ImageList from "components/basic/Game/ImageList.jsx";
 
 import 'styles/components/pages/game.css'
+const data = require('~/data/games.json');
 
 class Game extends React.Component {
     images = [];
@@ -21,15 +22,19 @@ class Game extends React.Component {
             'assets/6.jpg'
         ];
 
+        // Find Counter-Strike Global Offensive no matter what we have selected
+        // This will be our default game for demonstration purposes
+        this.gameData = data.filter((obj) => {
+            return obj.id == 1;
+        });
+        this.gameData = this.gameData[0];
+
         // Whatever https://github.com/ReactTraining/react-router/issues/4410
         this.selectedGame = parseInt(props.location.pathname.split('/').slice(-1)[0]);
         if(isNaN(this.selectedGame) || this.selectedGame < 0 || this.selectedGame > 8) {
             props.history.push({pathname: '/404'});
             return;
         }
-
-        // all good here
-        console.log(this.selectedGame);
     }
 
     render() {
@@ -50,11 +55,113 @@ class Game extends React.Component {
                 </main>
                 <aside className="Game__aside">
                     <div className="Game__aside--pricing">
-                        Pricing goes here
+                        <span className="Game__aside--price">
+                            { this.gameData['price'] }€
+                        </span>
+                        <div className="Game__aside--platforms">
+                            <i className="fa fa-windows" aria-hidden="true"></i>
+                            <i className="fa fa-apple" aria-hidden="true"></i>
+                            <i className="fa fa-linux" aria-hidden="true"></i>
+                        </div>
+                    </div>              
+                    <div className="Game__aside--data">
+                        <div className="Game__aside--details-row">
+                            <span className="Game__aside--data-row--title">
+                                Platforms
+                            </span>
+                            <span className="Game__aside--data-row--contents">
+                                <i className="fa fa-steam" aria-hidden="true"></i> Steam, <strong>G2A</strong>
+                            </span>
+                        </div>
+                        <div className="Game__aside--details-row">
+                            <span className="Game__aside--data-row--title">
+                                Genre
+                            </span>
+                            <span className="Game__aside--data-row--contents">
+                                Action, FPS
+                            </span>
+                        </div>
+                        <div className="Game__aside--details-row">
+                            <span className="Game__aside--data-row--title">
+                                Developer
+                            </span>
+                            <span className="Game__aside--data-row--contents">
+                                Valve
+                            </span>
+                        </div>
+                        <div className="Game__aside--details-row">
+                            <span className="Game__aside--data-row--title">
+                                Publisher
+                            </span>
+                            <span className="Game__aside--data-row--contents">
+                                Valve
+                            </span>
+                        </div>
+                        <div className="Game__aside--details-row">
+                            <span className="Game__aside--data-row--title">
+                                Released
+                            </span>
+                            <span className="Game__aside--data-row--contents">
+                                21 Aug, 2012
+                            </span>
+                        </div>
                     </div>
-                    <div className="Game__aside--specs">
-                        Specs go here
+
+                    <div className="Game__aside--data">
+                        <div className="Game__aside--specs-row">
+                            <span className="Game__aside--data-row--title">
+                                Processor
+                            </span>
+                            <span className="Game__aside--data-row--contents">
+                                Core™ 2 Duo E6600 or AMD Phenom™ X3 8750 processor or better
+                            </span>
+                        </div>
+                        <div className="Game__aside--specs-row">
+                            <span className="Game__aside--data-row--title">
+                                Memory
+                            </span>
+                            <span className="Game__aside--data-row--contents">
+                                4 GB RAM or more
+                            </span>
+                        </div>
+                        <div className="Game__aside--specs-row">
+                            <span className="Game__aside--data-row--title">
+                                Graphics
+                            </span>
+                            <span className="Game__aside--data-row--contents">
+                                ATI Radeon HD 2400 or better / NVidia 8600M or better
+                            </span>
+                        </div>
+                        <div className="Game__aside--specs-row">
+                            <span className="Game__aside--data-row--title">
+                                Storage
+                            </span>
+                            <span className="Game__aside--data-row--contents">
+                                15 GB available space
+                            </span>
+                        </div>
+                        <div className="Game__aside--specs-row">
+                            <span className="Game__aside--data-row--title">
+                                Sound card
+                            </span>
+                            <span className="Game__aside--data-row--contents">
+                                OpenAL Compatible Sound Card
+                            </span>
+                        </div>
                     </div>
+
+                    <div className="Game__aside--buttons">
+                        <button className="btn-green">
+                            <i className="fa fa-credit-card" aria-hidden="true"></i> Buy now on G2A
+                        </button>
+                        <button className="btn-blue">
+                            <i className="fa fa-star" aria-hidden="true"></i> Add to wishlist
+                        </button>
+                    </div>
+
+                    { console.log(this.props.authenticator) }
+
+
                 </aside>
             </div>
         )

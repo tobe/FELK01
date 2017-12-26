@@ -7,7 +7,7 @@ const LogoutButton = props => (
             className={props.className}
             onClick={() => {
                 props.authenticator.logout()                                
-                props.history.push(history.location)
+                props.history.push('/')
             }}
         >
             Logout
