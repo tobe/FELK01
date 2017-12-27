@@ -6,6 +6,11 @@ import Lorem from 'react-lorem-component'
 import 'styles/components/basic/Popup.css'
 
 class Popup extends React.Component {
+    constructor() {
+        super();
+        
+    }
+
     render() {
         const buttonClassNames = classnames('fa', 'fa-window-close', 'Popup__close')
 

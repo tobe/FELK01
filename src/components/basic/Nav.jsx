@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom'
 
 import Hamburger from 'components/basic/Hamburger.jsx'
 import LogoutButton from 'components/basic/LogoutButton.jsx'
+import RegisterButton from 'components/basic/RegisterButton.jsx'
 
 class Nav extends Component {    
     constructor(props) {
@@ -15,7 +16,9 @@ class Nav extends Component {
         isMenuOpen: false
     }
 
-    handleNavClick = () => this.setState({isMenuOpen: !this.state.isMenuOpen})
+    handleNavClick = () => {
+        this.setState({isMenuOpen: !this.state.isMenuOpen})
+    }
 
     render() {
 
@@ -37,7 +40,7 @@ class Nav extends Component {
                 <div className={linkWrapperClassName}>
                     {
                         this.props.links.map((link, index) => (
-                                <NavLink                         
+                                <NavLink                     
                                     key={index}
                                     className={'Nav__link'}
                                     activeClassName={'Nav--active'}
@@ -47,9 +50,22 @@ class Nav extends Component {
                                 </NavLink>
                         ))
                     }
+
+                    <LogoutButton onClick={this.handleNavClick} className={'Nav__link'} {...this.props} />
+
+                    {
+                        !this.props.authenticator.authenticated ?
+                            <NavLink
+                                className={'Nav__link'}
+                                activeClassName={'Nav--active'}
+                                to='/register'
+                                onClick={this.handleNavClick}>
+                                Register
+                            </NavLink>
+                        :
+                            null
+                    }
                 </div>
-        
-                <LogoutButton className={'Nav__link'} {...this.props} />
             </nav>            
         ) 
     }

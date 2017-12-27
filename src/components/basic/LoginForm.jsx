@@ -1,5 +1,6 @@
 import React,  { Component } from 'react';
 import { Redirect } from 'react-router-dom'
+import classnames from 'classnames'
 
 import 'styles/components/basic/LoginForm.css'
 
@@ -10,7 +11,7 @@ class LoginButton extends Component {
 
     state = {redirect: false}
     
-    handleLogin = () => {
+    handleLogin = (e) => {
         this.props.authenticator.login(() => this.setState({redirect: true}))
     }
 
@@ -18,35 +19,65 @@ class LoginButton extends Component {
         return this.state.redirect ? (
             <Redirect to={this.props.private}/>
         ) : (
-            <div className={'LoginForm__button'} onClick={this.handleLogin}>
+            <button type="submit" className="LoginForm__buton" onClick={this.handleLogin}>
                 {this.props.title}
-            </div>
+            </button>
         )
     }
 }
 
+class LoginForm extends React.Component {
+    state = {
+        visible: false
+    }
 
-const LoginForm = props => (
-    <div>
-        <div className={'LoginForm'}>
-            <p>To access <span className='alert'>{props.private}</span> page you have to sign in.</p>
-            
-            <input 
-                autoFocus 
-                type='text' 
-                className={'LoginForm__input'}
-                placeholder='Username'
-            />
-            
-            <input 
-                type='password' 
-                className={'LoginForm__input'}
-                placeholder='Passphrase'    
-            />
+    constructor() {
+        super();
 
-            <LoginButton title={'Login'} {...props}/>
-        </div>        
-    </div>    
-)
+        this.toggleVisibility = this.toggleVisibility.bind(this);
+    }
+
+    toggleVisibility() {
+        this.setState({
+            visible: !this.state.visible
+        });
+    }
+
+    render() {
+        let passphraseClass = classnames({
+            'fa': 1,
+            'fa-eye-slash': this.state.visible,
+            'fa-eye': !this.state.visible
+        })
+        let inputType = this.state.visible == 1 ? 'password' : 'text';
+
+        return (
+            <div className="LoginForm__container">
+                <h2>To access the Wishlist, you have to sign in!</h2>
+                <form className="LoginForm">
+                    <input 
+                        autoFocus
+                        type='text'
+                        className={'LoginForm__input'}
+                        placeholder='Username'
+                        required
+                    />
+                    
+                    <div className="LoginForm__passphrase-wrapper">
+                        <input 
+                            type={inputType}
+                            className={'LoginForm__input LoginForm__passphrase'}
+                            placeholder='Passphrase'
+                            required
+                        />
+                        <i onClick={this.toggleVisibility} className={passphraseClass} aria-hidden="true"></i>
+                    </div>
+
+                    <LoginButton title={'Sign in'} {...this.props}/>
+                </form>        
+            </div>
+        );
+    }
+}
 
 export default LoginForm

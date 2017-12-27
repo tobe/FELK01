@@ -23,7 +23,7 @@ import PrivateRoute from 'components/basic/PrivateRoute.jsx'
 import LoginForm from 'components/basic/LoginForm.jsx'
 import PageNotFound from 'components/pages/PageNotFound.jsx'
 
-const links = ['Home', 'Game', 'News', 'Private']
+const links = ['Home', 'News', 'Wishlist']
 
 //------------------------------------
 // Faking an authentication service
@@ -100,12 +100,12 @@ class App extends React.Component {
                     <Route path="/404"  component={PageNotFound} />
                     <Route exact path="/login" render={() => 
                         <LoginForm 
-                            private="/private"
+                            private="/wishlist"
                             authenticator={authenticator}
                         />
                     }/>
         
-                    <PrivateRoute path="/private"
+                    <PrivateRoute path="/wishlist"
                         component={Private}
                         authenticator={authenticator}
                         redirect={"/login"}

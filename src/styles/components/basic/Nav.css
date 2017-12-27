@@ -14,6 +14,8 @@
     /* Push the hamburger icon all the way to the right */
     justify-content: flex-end;
     width: 100vw;
+
+    z-index: 9999;
 }
 
 .Nav__container, .Nav__container--mobile {

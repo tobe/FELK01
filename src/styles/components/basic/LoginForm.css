@@ -1,25 +1,39 @@
-.LoginForm {
-    --LoginForm-button-bg-color: #555;
-    --LoginForm-button-bg-color-on-hover: rgba(85, 85, 85, 0.74);
-    --LoginForm-input-border-color: var(--LoginForm-button-bg-color-on-hover);
-    --LoginForm-input-border-focus-color: var(--LoginForm-button-bg-color-on-hover);
-    --LoginForm-color: white;
+.LoginForm__container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 100%;
+    align-items: center;
+    margin-top: 1rem;
+}
 
+@supports (display: grid) {
+    @media screen and (min-width: 576px)  {
+        .LoginForm__container {
+            grid-area: maincontainer;
+            grid-template-columns: 1fr;
+            grid-template-areas: 
+                "main";
+        }
+    }
+}
+
+.LoginForm {
     display: grid;
     grid-row-gap: 0.5em;
     grid-template-columns: 350px;
     font-size: 1.1em;
     justify-items: stretch;
+    margin-top: 2rem;
 }
 
 .LoginForm__input {
     outline: none;
-    border: solid 1px var(--LoginForm-input-border-color);
+    border: solid 1px gray;
 }
 
 .LoginForm__input:focus {
-    border-color: var(--LoginForm-input-border-focus-color);
-    box-shadow: 0 0 5px 0px var(--LoginForm-input-border-focus-color);    
+    box-shadow: 0 0 5px 0px #000;
 }
 
 .LoginForm__button, .LoginForm__input {
@@ -27,14 +41,20 @@
     font-size: inherit;
 }
 
-.LoginForm__button {
-    background-color: var(--LoginForm-button-bg-color);
-    color: var(--LoginForm-color);
-    border: none;
-    cursor: pointer;
-    text-align: center;
+.LoginForm__button:hover {
+    background-color: darkgray;       
 }
 
-.LoginForm__button:hover {
-    background-color: var(--LoginForm-button-bg-color-on-hover);
+.LoginForm__passphrase {
+    width: 100%;
+    align-self: center;
+    color: #495057;
+}
+.LoginForm__passphrase-wrapper {
+    display: flex;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.LoginForm__passphrase-wrapper .fa {
+    margin: auto -30px;
 }
