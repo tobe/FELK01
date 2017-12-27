@@ -5,7 +5,6 @@ import { NavLink } from 'react-router-dom'
 
 import Hamburger from 'components/basic/Hamburger.jsx'
 import LogoutButton from 'components/basic/LogoutButton.jsx'
-import RegisterButton from 'components/basic/RegisterButton.jsx'
 
 class Nav extends Component {    
     constructor(props) {
