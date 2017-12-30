@@ -26,6 +26,10 @@ class ImageList extends React.Component {
         this.setState({startTransition: true});
     }
 
+    /**
+     * Handles a button click.
+     * @param {*string} direction Left / Right carousel click
+     */
     handleButtonClick(direction) {
         // First let's find the current image index
         let currentIndex = this.props.images.findIndex(el => el == this.state.selectedImage);
@@ -50,10 +54,13 @@ class ImageList extends React.Component {
         });
     }
 
+    /**
+     * Handles a thumbnail click.
+     * @param {*event} e onClick event handler
+     */
     handleThumbnailClick(e) {
         // Custom attributes aren't supported in React15, so we have to do this dirty trick.
         // I mean, probably there exist a better solution. Alas, this is what I had come up with.
-        // Whatever...
         // see: https://stackoverflow.com/questions/31273093/how-to-add-custom-html-attributes-in-jsx
         console.log(e.target.id);
 

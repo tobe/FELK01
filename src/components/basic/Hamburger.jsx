@@ -9,7 +9,7 @@ const Hamburger = ({onClick}) => (
             <div className="Hamburger__icon">
                 <span className="Hamburger__span"/>
             </div>
-        </div>  
+        </div>
 )
 
 export default Hamburger

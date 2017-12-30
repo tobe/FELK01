@@ -1,5 +1,5 @@
 import React,  { Component } from 'react';
-import { Redirect } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
 import classnames from 'classnames'
 
 import 'styles/components/basic/LoginForm.css'
@@ -49,11 +49,11 @@ class LoginForm extends React.Component {
             'fa-eye-slash': this.state.visible,
             'fa-eye': !this.state.visible
         })
-        let inputType = this.state.visible == 1 ? 'password' : 'text';
+        let inputType = this.state.visible == 1 ? 'text' : 'password';
 
         return (
             <div className="LoginForm__container">
-                <h2>To access the Wishlist, you have to sign in!</h2>
+                <h2>Before accessing the wishlist, you have to sign in first</h2>
                 <form className="LoginForm">
                     <input 
                         autoFocus
@@ -74,7 +74,8 @@ class LoginForm extends React.Component {
                     </div>
 
                     <LoginButton title={'Sign in'} {...this.props}/>
-                </form>        
+                </form>  
+                <small>Don't have an account? <Link to="/register">Register here</Link>.</small>      
             </div>
         );
     }

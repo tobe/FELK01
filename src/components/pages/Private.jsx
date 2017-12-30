@@ -5,7 +5,7 @@ import 'styles/components/basic/LoginForm.css'
 
 const Private = () => (
     <div>
-        <h2>Private</h2>
+        <h2>Wishlist</h2>
         <br/>
         <Lorem mode="list" count="2"/>
         <p>

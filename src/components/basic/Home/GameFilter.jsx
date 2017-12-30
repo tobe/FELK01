@@ -14,17 +14,10 @@ class GameFilter extends React.Component {
         this.searchGames = this.searchGames.bind(this);
     }
 
-    chunk(array, size) {
-        return array.reduce((chunks, item, i) => {
-          if (i % size === 0) {
-            chunks.push([item]);
-          } else {  
-            chunks[chunks.length - 1].push(item);
-          }
-          return chunks;
-        }, []);
-      }
-
+    /**
+     * Searches for games.
+     * @param {*event} event onChange event propagation
+     */
     searchGames(event) {
         let newList = this.props.initialList;
         newList = newList.filter(function(item){
@@ -38,6 +31,8 @@ class GameFilter extends React.Component {
         // Will hold all game objects to render
         let games = [];
         let i = 0;
+
+        // Add two bigger cards (full)
         this.props.updatedList.forEach(element => {
             if(i <= 1)
                 games.push(<Card key={i} game = {element} full = {true} />);
@@ -50,7 +45,7 @@ class GameFilter extends React.Component {
         if(this.props.state.showError)
             games.push(<Error key={-1} text = "No games match your criteria" />)
 
-        // Render a row of three games if we haven't selected all (no featured games)
+        // And put all other cards in a single row
         let rowContents = [];
         const contents = games.reduce((acc, p, i) => {
             rowContents.push(p);

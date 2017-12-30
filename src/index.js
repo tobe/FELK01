@@ -15,8 +15,6 @@ import {
 
 import Nav from 'components/basic/Nav.jsx'
 import Home from 'components/pages/Home.jsx'
-import About from 'components/pages/About.jsx'
-import News from 'components/pages/News.jsx'
 import Game from 'components/pages/Game.jsx'
 import Private from 'components/pages/Private.jsx'
 import PrivateRoute from 'components/basic/PrivateRoute.jsx'
@@ -41,40 +39,6 @@ const authenticator = {
     }
 }
 
-//------------------------------------
-// The main component
-//------------------------------------
-/*const App = () => (
-    <Router>
-        <div className="container">
-            <header className="header">
-                <span className="name"><i className="fa fa-gamepad" aria-hidden="true"></i>GameQuest</span>
-                <Nav links={links} authenticator={authenticator}/>
-                <Nav mobile links={links} authenticator={authenticator}/>
-            </header>
-
-            {<Route exact path="/" render={() => <Redirect to='/home'/>} />}
-            {<Route path="/home" component={Home} />}
-            <Route path="/game" component={Game}/>
-            <Route path="/news" component={News}/>
-            <Route exact path="/login" render={() => 
-                <LoginForm 
-                    private="/private"
-                    authenticator={authenticator}
-                />
-            }/>
-
-            <PrivateRoute path="/private"
-                component={Private}
-                authenticator={authenticator}
-                redirect={"/login"}
-            />
-
-            <footer className="footer">&copy; 2017 GameQuest</footer>
-        </div>
-    </Router>
-);*/
-
 class App extends React.Component {
     constructor() {
         super();
@@ -95,8 +59,7 @@ class App extends React.Component {
                     <Route path="/home" component={Home} />
                     <Route path="/game" render={() => 
                         <Game authenticator={authenticator} />
-                    } />
-                    <Route path="/news" component={News} />
+                    } />                    
                     <Route path="/404"  component={PageNotFound} />
                     <Route exact path="/login" render={() => 
                         <LoginForm 

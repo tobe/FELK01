@@ -16,18 +16,24 @@ class Platform extends React.Component {
                 case "Playstation":
                 case "Xbox":
                     if(!hasConsole)
-                        output.push(<i key={platform} className="fa fa-tv Platform" aria-hidden="true"></i>);
+                        output.push(
+                            <i key={platform} className="fa fa-tv Platform" aria-hidden="true"></i>
+                        );
                     hasConsole = true;
                 break;
                 case "PC":
                 case "Mac":
                     if(!hasPC)
-                        output.push(<i key={platform} className="fa fa-laptop Platform" aria-hidden="true"></i>);
+                        output.push(
+                            <i key={platform} className="fa fa-laptop Platform" aria-hidden="true"></i>
+                        );
                     hasPC = true;
                 break;
                 default:
                     if(!hasMobile)
-                        output.push(<i key={platform} className="fa fa-mobile Platform" aria-hidden="true"></i>);
+                        output.push(
+                            <i key={platform} className="fa fa-mobile Platform" aria-hidden="true"></i>
+                        );
                     hasMobile = true;
                 break;
             }

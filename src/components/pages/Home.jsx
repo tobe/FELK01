@@ -45,7 +45,7 @@ class Home extends React.Component {
      * Sets the items (games) to all available once the component mounts.
      */
     componentWillMount() {
-        /* TODO: Should actually call the method from child component (Sort) and sort in updateGamList
+        /* TODO: Should actually call the method from child component (Sort) and sort in updateGameList
         *every time* depending on the chosen <option> in the Sort's render. Why? Because, each time
         A list of games is updated, it will be *ensured* it's sorted, even if we, e.g: swap checkboxes, search
         swap checkboxes back and delete. But, since this is a PoC, I believe it's good as is. */

@@ -13,7 +13,8 @@ class PageNotFound extends React.Component {
                 <br/>
                 <p>Here's some of the things you can do:</p>
                     <ul>
-                        <li>Check yoself out</li>
+                        <li>Verify the address you are looking for is correct</li>
+                        <li>If you have visited a link, verify the link is valid</li>
                     </ul>
             </div>
         );

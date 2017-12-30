@@ -7,6 +7,10 @@
     margin-top: 1rem;
 }
 
+.LoginForm__container > small {
+    margin-top: 2rem;
+}
+
 @supports (display: grid) {
     @media screen and (min-width: 576px)  {
         .LoginForm__container {

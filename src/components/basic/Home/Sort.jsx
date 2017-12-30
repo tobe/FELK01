@@ -2,11 +2,37 @@ import React from 'react'
 
 import 'styles/components/basic/Home/Sort.css'
 
+// Emulating a C-like enum
+const SORTMODE = {
+    ASCENDING: 0,
+    DESCENDING: 1
+};
+
 class Sort extends React.Component {
     constructor() {
         super();
 
         this.handleChange = this.handleChange.bind(this);
+        
+    }
+    
+    /**
+     * Sorts an array of objects in an ascending or descending way, depending on the key.
+     * @param {*string} key The key of the object to sort by
+     * @param {*} mode Sorting mode, see SORTMODE
+     */
+    sort(key, mode) {
+        return function(a, b) {
+            switch(mode) {
+                case SORTMODE.ASCENDING:
+                    console.log(a[key], b[key]);
+                    return (a[key] > b[key]) ? 1 : ((b[key] > a[key]) ? -1 : 0);
+                break;
+                case SORTMODE.DESCENDING:
+                    return (a[key] < b[key]) ? 1 : ((b[key] < a[key]) ? -1 : 0);
+                break;
+            }
+        }
     }
 
     handleChange(event) {
@@ -17,34 +43,22 @@ class Sort extends React.Component {
 
         switch(parseInt(event.target.value)) {
             case 1: // # of players, descending
-                gamesCopy.sort((a, b) => {
-                    return (a.players < b.players) ? 1 : ((b.players < a.players) ? -1 : 0);
-                });
+                gamesCopy.sort(this.sort("players", SORTMODE.DESCENDING));
             break;
             case 2: // # of players, ascending
-                gamesCopy.sort((a, b) => {
-                    return (a.players > b.players) ? 1 : ((b.players > a.players) ? -1 : 0);
-                });
+                gamesCopy.sort(this.sort("players", SORTMODE.ASCENDING));
             break;
             case 3: // Price, descending
-                gamesCopy.sort((a, b) => {
-                    return (a.price < b.price) ? 1 : ((b.price < a.price) ? -1 : 0);
-                });
+                gamesCopy.sort(this.sort("price", SORTMODE.DESCENDING));
             break;
             case 4: // Price, ascending
-                gamesCopy.sort((a, b) => {
-                    return (a.price > b.price) ? 1 : ((b.price > a.price) ? -1 : 0);
-                });
+                gamesCopy.sort(this.sort("price", SORTMODE.ASCENDING));
             break;
             case 5: // Name, descending
-                gamesCopy.sort((a, b) => {
-                    return (a.name < b.name) ? 1 : ((b.name < a.name) ? -1 : 0);
-                });
+                gamesCopy.sort(this.sort("name", SORTMODE.DESCENDING));
             break;
             case 6: // Name, ascending
-                gamesCopy.sort((a, b) => {
-                    return (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0);
-                });
+                gamesCopy.sort(this.sort("name", SORTMODE.ASCENDING));
             break;
         }
 

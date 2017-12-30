@@ -13,21 +13,22 @@ class Game extends React.Component {
     constructor(props) {
         super();
 
-        this.images = [
-            'assets/1.jpg',
-            'assets/2.jpg',
-            'assets/3.jpg',
-            'assets/4.jpg',
-            'assets/5.jpg',
-            'assets/6.jpg'
-        ];
-
         // Find Counter-Strike Global Offensive no matter what we have selected
         // This will be our default game for demonstration purposes
         this.gameData = data.filter((obj) => {
             return obj.id == 1;
         });
         this.gameData = this.gameData[0];
+
+        // Here we would grab the images dynamically, but we hardcode to id 1
+        this.images = [
+            'assets/1/1.jpg',
+            'assets/1/2.jpg',
+            'assets/1/3.jpg',
+            'assets/1/4.jpg',
+            'assets/1/5.jpg',
+            'assets/1/6.jpg'
+        ];
 
         // Whatever https://github.com/ReactTraining/react-router/issues/4410
         this.selectedGame = parseInt(props.location.pathname.split('/').slice(-1)[0]);
@@ -154,14 +155,15 @@ class Game extends React.Component {
                         <button className="btn-green">
                             <i className="fa fa-credit-card" aria-hidden="true"></i> Buy now on G2A
                         </button>
-                        <button className="btn-blue">
-                            <i className="fa fa-star" aria-hidden="true"></i> Add to wishlist
-                        </button>
+                        {
+                        this.props.authenticator.authenticated ?
+                            <button className="btn-blue">
+                                <i className="fa fa-star" aria-hidden="true"></i> Add to wishlist
+                            </button>
+                        :
+                            null
+                        }
                     </div>
-
-                    { console.log(this.props.authenticator) }
-
-
                 </aside>
             </div>
         )
