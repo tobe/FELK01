@@ -1,4 +1,4 @@
-.LoginForm__container {
+.RegisterForm__container {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -7,17 +7,28 @@
     margin-top: 1rem;
 }
 
-.LoginForm__container > small {
+.RegisterForm__container > small {
     margin-top: 2rem;
+}
+
+.RegisterForm__container > form {
+    margin-top: 1rem;
 }
 
 @supports (display: grid) {
     @media screen and (min-width: 576px)  {
-        .LoginForm__container {
+        .RegisterForm__container {
             grid-area: maincontainer;
             grid-template-columns: 1fr;
             grid-template-areas: 
                 "main";
         }
     }
+}
+
+.RegisterForm__container input {
+    margin-top: 1rem;
+}
+.Register__button {
+    margin-top: 1rem;
 }

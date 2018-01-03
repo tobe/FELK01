@@ -19,7 +19,7 @@ class LoginButton extends Component {
         return this.state.redirect ? (
             <Redirect to={this.props.private}/>
         ) : (
-            <button type="submit" className="LoginForm__buton" onClick={this.handleLogin}>
+            <button type="submit" className="InputForm__button" onClick={this.handleLogin}>
                 {this.props.title}
             </button>
         )
@@ -54,19 +54,19 @@ class LoginForm extends React.Component {
         return (
             <div className="LoginForm__container">
                 <h2>Before accessing the wishlist, you have to sign in first</h2>
-                <form className="LoginForm">
+                <form className="InputForm">
                     <input 
                         autoFocus
                         type='text'
-                        className={'LoginForm__input'}
+                        className={'InputForm__input'}
                         placeholder='Username'
                         required
                     />
                     
-                    <div className="LoginForm__passphrase-wrapper">
+                    <div className="InputForm__passphrase-wrapper">
                         <input 
                             type={inputType}
-                            className={'LoginForm__input LoginForm__passphrase'}
+                            className={'InputForm__input InputForm__passphrase'}
                             placeholder='Passphrase'
                             required
                         />

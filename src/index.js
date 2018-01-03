@@ -20,6 +20,7 @@ import Private from 'components/pages/Private.jsx'
 import PrivateRoute from 'components/basic/PrivateRoute.jsx'
 import LoginForm from 'components/basic/LoginForm.jsx'
 import PageNotFound from 'components/pages/PageNotFound.jsx'
+import Register from 'components/pages/Register.jsx'
 
 const links = ['Home', 'News', 'Wishlist']
 
@@ -73,6 +74,8 @@ class App extends React.Component {
                         authenticator={authenticator}
                         redirect={"/login"}
                     />
+
+                    <Route path="/register" component={Register} />
         
                     <footer className="footer">&copy; 2017 GameQuest</footer>
                 </div>

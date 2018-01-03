@@ -147,6 +147,11 @@ button {
     font-family: 'Open Sans', 'Segoe UI', 'Calibri', sans-serif;
 }
 
+button:disabled {
+    box-shadow: none;
+    cursor: not-allowed;
+}
+
 .btn-green {
     background-color: #27ae60;
     color: #FFF;
@@ -214,4 +219,46 @@ button {
 .transition--end {
     visibility: visible;
     opacity: 1;    
+}
+
+/* Login / Register form */
+.InputForm {
+    display: grid;
+    grid-row-gap: 0.5em;
+    grid-template-columns: 350px;
+    font-size: 1.1em;
+    justify-items: stretch;
+    margin-top: 2rem;
+}
+
+.InputForm__input {
+    outline: none;
+    border: solid 1px gray;
+}
+
+.InputForm__input:focus {
+    box-shadow: 0 0 5px 0px #000;
+}
+
+.InputForm__input {
+    padding: 0.5em;
+    font-size: inherit;
+}
+
+.InputForm__button {
+    font-size: .8rem;
+}
+
+.InputForm__passphrase {
+    width: 100%;
+    align-self: center;
+    color: #495057;
+}
+.InputForm__passphrase-wrapper {
+    display: flex;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.InputForm__passphrase-wrapper .fa {
+    margin: auto -30px;
 }
