@@ -53,7 +53,7 @@ class LoginForm extends React.Component {
 
         return (
             <div className="LoginForm__container">
-                <h2>Before accessing the wishlist, you have to sign in first</h2>
+                <h2>To access the wishlist, sign in</h2>
                 <form className="InputForm">
                     <input 
                         autoFocus

@@ -63,6 +63,16 @@ class Register extends React.Component {
 
     render() {
         let disableButton = this.disableButton();
+        let displayProblems = false;
+        let problems = [];
+        if(this.state.invalidEmail)
+            problems.push("The e-mail you have entered is invalid");
+        if(this.state.passwordMismatch)
+            problems.push("Passwords do not match");
+        if(this.state.passwordTooShort)
+            problems.push("The password you have chosen is too short");
+
+        if(problems.length > 0) displayProblems = true;
 
         return (
             <div className="RegisterForm__container">
@@ -113,11 +123,22 @@ class Register extends React.Component {
                             Register
                     </button>
 
-                    Problems:
-                    <ul>
-                        <li>aaa</li>
-                        <li>bbb</li>
-                    </ul>
+                    {
+                        displayProblems ? 
+                            problems.map((problem, key) => {
+                                return (
+                                    <ul className="Register__warnings" key={key}>
+                                        <li>
+                                            <small className="Register__warning">
+                                                { problem }
+                                            </small>
+                                        </li>
+                                    </ul>
+                                )
+                            })
+                        :
+                            null
+                    }
                 </form>
                 <small>Already have an account? Access your Wishlist <Link to="/wishlist">here</Link>.</small>
             </div>

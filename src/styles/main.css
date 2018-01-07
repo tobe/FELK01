@@ -228,7 +228,7 @@ button:disabled {
     grid-template-columns: 350px;
     font-size: 1.1em;
     justify-items: stretch;
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 .InputForm__input {
