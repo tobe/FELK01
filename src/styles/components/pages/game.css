@@ -50,6 +50,9 @@
     }
 }
 
+.Game__aside--wrap {
+    height: 250px;
+}
 .Game__aside--price {
     display: flex;
     justify-content: center;
@@ -70,6 +73,9 @@
 }
 .Game__aside--platforms > .fa-apple {
     color: #999999;
+}
+.Game__aside--platforms > .fa-g2a {
+    font-family: inherit;
 }
 
 .Game__aside--data {

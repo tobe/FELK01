@@ -82,6 +82,9 @@ aside {
 
 footer {
     text-align: center;
+    background-color: #343a40;
+    padding: .5rem;
+    color: #CCC;
 }
 
 @supports (display: grid) {

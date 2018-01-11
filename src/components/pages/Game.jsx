@@ -55,25 +55,40 @@ class Game extends React.Component {
                     </div>
                 </main>
                 <aside className="Game__aside">
-                    <div className="Game__aside--pricing">
-                        <span className="Game__aside--price">
-                            { this.gameData['price'] }€
-                        </span>
-                        <div className="Game__aside--platforms">
-                            <i className="fa fa-windows" aria-hidden="true"></i>
-                            <i className="fa fa-apple" aria-hidden="true"></i>
-                            <i className="fa fa-linux" aria-hidden="true"></i>
+                    <div className="Game__aside--wrap">
+                        <div className="Game__aside--pricing">
+                            <div className="Game__aside--platforms">
+                                
+                                <i className="fa fa-steam" aria-hidden="true"></i>
+                                <i className="fa fa-g2a">G2A</i>
+                            </div>
+                            {/*<span className="Game__aside--price">
+                                { this.gameData['price'] }€
+                            </span>*/}
                         </div>
-                    </div>              
+                        <div className="Game__aside--buttons">
+                            <button className="btn-green">
+                                <i className="fa fa-credit-card" aria-hidden="true"></i> Buy now for 15€
+                            </button>
+                            {
+                            this.props.authenticator.authenticated ?
+                                <button className="btn-blue">
+                                    <i className="fa fa-star" aria-hidden="true"></i> Add to wishlist
+                                </button>
+                            :
+                                null
+                            }
+                        </div>
+                    </div>
                     <div className="Game__aside--data">
-                        <div className="Game__aside--details-row">
+                        {/*<div className="Game__aside--details-row">
                             <span className="Game__aside--data-row--title">
                                 Platforms
                             </span>
                             <span className="Game__aside--data-row--contents">
                                 <i className="fa fa-steam" aria-hidden="true"></i> Steam, <strong>G2A</strong>
                             </span>
-                        </div>
+                        </div>*/}
                         <div className="Game__aside--details-row">
                             <span className="Game__aside--data-row--title">
                                 Genre
@@ -149,20 +164,6 @@ class Game extends React.Component {
                                 OpenAL Compatible Sound Card
                             </span>
                         </div>
-                    </div>
-
-                    <div className="Game__aside--buttons">
-                        <button className="btn-green">
-                            <i className="fa fa-credit-card" aria-hidden="true"></i> Buy now on G2A
-                        </button>
-                        {
-                        this.props.authenticator.authenticated ?
-                            <button className="btn-blue">
-                                <i className="fa fa-star" aria-hidden="true"></i> Add to wishlist
-                            </button>
-                        :
-                            null
-                        }
                     </div>
                 </aside>
             </div>
