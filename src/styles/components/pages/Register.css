@@ -32,9 +32,6 @@
 .Register__button {
     margin-top: 1rem;
 }
-.Register__warnings > li > small {
+.Register__warning {
     color: red;
-}
-.Register__warnings > li {
-    margin: 0;
 }

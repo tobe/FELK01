@@ -47,8 +47,6 @@ class Game extends React.Component {
                     <div className="Game__info">
                         <h1>Counter-strike: Global Offensive</h1>
                         <p>Counter-Strike: Global Offensive (CS:GO) is a multiplayer first-person shooter video game developed by Hidden Path Entertainment and Valve Corporation. It is the fourth game in the Counter-Strike series and was released for Microsoft Windows, OS X, Xbox 360, and PlayStation 3 in August 2012, with the Linux version released in September 2014. The game pits two teams against each other: the Terrorists and the Counter-Terrorists. Both sides are tasked with eliminating the other while also completing separate objectives, the Terrorists, depending on the game mode, must either plant the bomb or defend the hostages, while the Counter-Terrorists must either prevent the bomb from being planted or rescue the hostages. There are six game modes, all of which have distinct characteristics specific to that mode.</p><br />
-                        <p>Counter-Strike: Global Offensive (CS:GO) will expand upon the team-based action gameplay that it pioneered when it was launched <strong>14 years ago</strong>.</p><br />
-                        <p>CS:GO features new maps, characters, and weapons and delivers updated versions of the classic CS content (de_dust2, etc.). In addition, CS:GO will introduce new gameplay modes, matchmaking, leader boards, and more.</p><br />
                         <blockquote>Counter-Strike took the gaming industry by surprise when the unlikely MOD became the most played online PC action game in the world almost immediately after its release in August 1999. For the past 12 years, it has continued to be one of the most-played games in the world, headline competitive gaming tournaments and selling over <strong>25 million units</strong> worldwide across the franchise. CS:GO promises to expand on CS' award-winning gameplay and deliver it to gamers on the PC as well as the next gen consoles and the Mac.</blockquote>
                         
                         <ImageList images = {this.images} />
@@ -60,35 +58,19 @@ class Game extends React.Component {
                             <div className="Game__aside--platforms">
                                 
                                 <i className="fa fa-steam" aria-hidden="true"></i>
-                                <i className="fa fa-g2a">G2A</i>
+                                {<img width="100" height="50" src="/assets/logo_g2a_white.svg" />}
                             </div>
-                            {/*<span className="Game__aside--price">
-                                { this.gameData['price'] }€
-                            </span>*/}
                         </div>
                         <div className="Game__aside--buttons">
-                            <button className="btn-green">
-                                <i className="fa fa-credit-card" aria-hidden="true"></i> Buy now for 15€
+                            <button className="btn-red Game__aside--buttons-buynow">
+                                <i className="fa fa-credit-card" aria-hidden="true"></i> Buy now <br/>15€
                             </button>
-                            {
-                            this.props.authenticator.authenticated ?
-                                <button className="btn-blue">
-                                    <i className="fa fa-star" aria-hidden="true"></i> Add to wishlist
-                                </button>
-                            :
-                                null
-                            }
+                            <button className="btn-green">
+                                <i className="fa fa-star" aria-hidden="true"></i> Add to wishlist
+                            </button>
                         </div>
                     </div>
                     <div className="Game__aside--data">
-                        {/*<div className="Game__aside--details-row">
-                            <span className="Game__aside--data-row--title">
-                                Platforms
-                            </span>
-                            <span className="Game__aside--data-row--contents">
-                                <i className="fa fa-steam" aria-hidden="true"></i> Steam, <strong>G2A</strong>
-                            </span>
-                        </div>*/}
                         <div className="Game__aside--details-row">
                             <span className="Game__aside--data-row--title">
                                 Genre
@@ -125,7 +107,15 @@ class Game extends React.Component {
 
                     <div className="Game__aside--data">
                         <div className="Game__aside--specs-row">
-                            <span className="Game__aside--data-row--title">
+                            <span className="Game__aside--data-row--titlelong">
+                                Operating system
+                            </span>
+                            <span className="Game__aside--data-row--contents">
+                                Windows, Linux or Mac OS
+                            </span>
+                        </div>
+                        <div className="Game__aside--specs-row">
+                            <span className="Game__aside--data-row--titlelong">
                                 Processor
                             </span>
                             <span className="Game__aside--data-row--contents">
@@ -133,7 +123,7 @@ class Game extends React.Component {
                             </span>
                         </div>
                         <div className="Game__aside--specs-row">
-                            <span className="Game__aside--data-row--title">
+                            <span className="Game__aside--data-row--titlelong">
                                 Memory
                             </span>
                             <span className="Game__aside--data-row--contents">
@@ -141,7 +131,7 @@ class Game extends React.Component {
                             </span>
                         </div>
                         <div className="Game__aside--specs-row">
-                            <span className="Game__aside--data-row--title">
+                            <span className="Game__aside--data-row--titlelong">
                                 Graphics
                             </span>
                             <span className="Game__aside--data-row--contents">
@@ -149,7 +139,7 @@ class Game extends React.Component {
                             </span>
                         </div>
                         <div className="Game__aside--specs-row">
-                            <span className="Game__aside--data-row--title">
+                            <span className="Game__aside--data-row--titlelong">
                                 Storage
                             </span>
                             <span className="Game__aside--data-row--contents">
@@ -157,7 +147,7 @@ class Game extends React.Component {
                             </span>
                         </div>
                         <div className="Game__aside--specs-row">
-                            <span className="Game__aside--data-row--title">
+                            <span className="Game__aside--data-row--titlelong">
                                 Sound card
                             </span>
                             <span className="Game__aside--data-row--contents">

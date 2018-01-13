@@ -24,7 +24,7 @@
     min-height: 300px;
 }
 .Game__info {
-    margin: 1rem;
+    margin: 1rem 0 1rem 1rem;
     line-height: 1.5rem;
 }
 .Game__info > h1 {
@@ -65,7 +65,6 @@
     align-items: center;
 }
 .Game__aside--platforms > i {
-    padding-left: 1.5rem;
     font-size: 2.5rem;
 }
 .Game__aside--platforms > .fa-windows {
@@ -77,26 +76,37 @@
 .Game__aside--platforms > .fa-g2a {
     font-family: inherit;
 }
+.Game__aside--platforms > img {
+    margin-left: 1rem;
+}
 
 .Game__aside--data {
     margin-top: 2rem;
     display: flex;
     flex-direction: column;
+    align-items: center;
     font-size: .9rem;
 }
 .Game__aside--details-row {
     display: flex;
     flex-direction: row;
+    width: 200px;
 }
 .Game__aside--specs-row {
     display: flex;
     flex-direction: column;
     margin-top: .5rem;
+    width: 200px;
 }
 .Game__aside--data-row--title {
     text-transform: uppercase;
     font-weight: 700;
     width: 110px;
+}
+.Game__aside--data-row--titlelong {
+    text-transform: uppercase;
+    font-weight: 700;
+    width: 100%;
 }
 @media screen and (min-width: 576px) and (max-width: 1024px) {
     .Game__aside--data-row--title {
@@ -122,4 +132,7 @@
     margin-top: 1.5rem;
     border-radius: 3px;
     font-weight: 700;
+}
+.Game__aside--buttons-buynow {
+    font-size: 1.3rem !important;
 }

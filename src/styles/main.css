@@ -163,6 +163,10 @@ button:disabled {
     background-color: #2980b9;
     color: #FFF;
 }
+.btn-red {
+    background-color: #e74c3c;
+    color: #FFF;
+}
 
 /* Checkboxes */
 .md-checkbox {

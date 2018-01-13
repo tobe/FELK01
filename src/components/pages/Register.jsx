@@ -46,7 +46,7 @@ class Register extends React.Component {
     handlePassphraseChange(event, type) {
         const updatePasswordStatus = () => {
             this.setState({
-                passwordMismatch: true ? this.state.originalPass != this.state.repeatedPass : false,
+                passwordMismatch: true ? (this.state.originalPass != this.state.repeatedPass /*&& this.state.repeatedPass.length > 0*/) : false,
                 passwordTooShort: true ? this.state.originalPass.length < 8 : false
             })
         }
@@ -63,16 +63,6 @@ class Register extends React.Component {
 
     render() {
         let disableButton = this.disableButton();
-        let displayProblems = false;
-        let problems = [];
-        if(this.state.invalidEmail)
-            problems.push("The e-mail you have entered is invalid");
-        if(this.state.passwordMismatch)
-            problems.push("Passwords do not match");
-        if(this.state.passwordTooShort)
-            problems.push("The password you have chosen is too short");
-
-        if(problems.length > 0) displayProblems = true;
 
         return (
             <div className="RegisterForm__container">
@@ -87,6 +77,15 @@ class Register extends React.Component {
                         onChange={this.handleEmailChange}
                     />
 
+                    {
+                        (this.state.invalidEmail) ?
+                            <small className="Register__warning">
+                                The E-Mail address is invalid
+                            </small>
+                        :
+                            null
+                    }
+
                     <input 
                         type="password"
                         className="InputForm__input"
@@ -95,6 +94,15 @@ class Register extends React.Component {
                         onChange={(e) => this.handlePassphraseChange(e, 'original')}
                     />
 
+                    {
+                        (this.state.passwordTooShort) ?
+                            <small className="Register__warning">
+                                Password must be at least 8 characters long
+                            </small>
+                        :
+                            null
+                    }
+
                     <input 
                         type="password"
                         className="InputForm__input"
@@ -102,6 +110,15 @@ class Register extends React.Component {
                         required
                         onChange={(e) => this.handlePassphraseChange(e, 'repeated')}
                     />
+
+                    {
+                        (this.state.passwordMismatch) ?
+                            <small className="Register__warning">
+                                Passwords do not match
+                            </small>
+                        :
+                            null
+                    }
 
                     <input 
                         type="text"
@@ -122,25 +139,8 @@ class Register extends React.Component {
                         disabled={disableButton}>
                             Register
                     </button>
-
-                    {
-                        displayProblems ? 
-                            problems.map((problem, key) => {
-                                return (
-                                    <ul className="Register__warnings" key={key}>
-                                        <li>
-                                            <small className="Register__warning">
-                                                { problem }
-                                            </small>
-                                        </li>
-                                    </ul>
-                                )
-                            })
-                        :
-                            null
-                    }
                 </form>
-                <small>Already have an account? Access your Wishlist <Link to="/wishlist">here</Link>.</small>
+                <small>Already have an account? Login <Link to="/login">here</Link>.</small>
             </div>
         );
     }
