@@ -99,7 +99,8 @@ class ImageList extends React.Component {
                         this.props.images.map(image => {
                             const imageClasses = classnames({
                                 'ImageList__image' : 1,
-                                'ImageList__image--selected': mainImage == image
+                                'ImageList__image--selected': mainImage == image,
+                                'ImageList__image--notselected': mainImage != image
                             });
                             return (
                                 <div id={image}
