@@ -91,9 +91,9 @@ module.exports = {
 
         // Copies all the assets to /public/assets/...
         // Flatten is false since this is just a PoC anyway, flip to true in prod.
-        new CopyWebpackPlugin([
+        /*new CopyWebpackPlugin([
             { from: './assets/*.*', to: './assets', flatten: false }
-        ]),
+        ]),*/
 
         // So we don't get React twice lol haha
         new webpack.optimize.CommonsChunkPlugin({
