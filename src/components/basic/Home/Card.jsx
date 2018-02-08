@@ -23,10 +23,17 @@ class Card extends React.Component {
         setTimeout(this.startTransition, 10);
     }
 
+    /**
+     * Called at mount to animate the Card fadein.
+     */
     startTransition() {
         this.setState({startTransition: true});
     }
 
+    /**
+     * Redirects a user to a certain game, by the game id.
+     * @param {*int} id The ID of the game to redirect to
+     */
     redirectToGame(id) {
         this.props.history.push({pathname: '/game/' + id});
     }

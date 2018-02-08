@@ -22,6 +22,9 @@ class ImageList extends React.Component {
         setTimeout(this.startTransition, 100);
     }
 
+    /**
+     * Called at mount to animate the image list
+     */
     startTransition() {
         this.setState({startTransition: true});
     }

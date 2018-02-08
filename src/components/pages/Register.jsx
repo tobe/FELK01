@@ -21,6 +21,9 @@ class Register extends React.Component {
         this.disableButton = this.disableButton.bind(this);
     }
 
+    /**
+     * @returns true if the Register button is disabled, false otherwise
+     */
     disableButton() {
         if(!this.state.invalidEmail &&
            !this.state.passwordMismatch &&
@@ -32,17 +35,31 @@ class Register extends React.Component {
         return true;
     }
 
+    /**
+     * Verifies an email against a regular expression.
+     * @see https://stackoverflow.com/questions/46155/how-can-an-email-address-be-validated-in-javascript
+     * @param {*string} email The email to verify
+     */
     validateEmail(email) {
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(email.toLowerCase());
     }
 
+    /**
+     * Handles the email change
+     * @param {*any} event Event
+     */
     handleEmailChange(event) {
         this.setState({
             invalidEmail: true ? !this.validateEmail(event.target.value) : false
         });
     }
 
+    /**
+     * Handles the passphrase change
+     * @param {*any} event Event
+     * @param {*string} type Passphrase type (original/repeated)
+     */
     handlePassphraseChange(event, type) {
         const updatePasswordStatus = () => {
             this.setState({
@@ -97,7 +114,7 @@ class Register extends React.Component {
                     {
                         (this.state.passwordTooShort) ?
                             <small className="Register__warning">
-                                Password must be at least 8 characters long
+                                Passphrase must be at least 8 characters long
                             </small>
                         :
                             null
@@ -114,7 +131,7 @@ class Register extends React.Component {
                     {
                         (this.state.passwordMismatch) ?
                             <small className="Register__warning">
-                                Passwords do not match
+                                Passphrases do not match
                             </small>
                         :
                             null

@@ -13,8 +13,6 @@ const cssProduction = ExtractTextPlugin.extract({
 });
 const cssConfig = isProduction ? cssProduction : cssDev;
 
-console.log('::: Senses Fail :::');
-
 module.exports = {
     entry: {
         'vendor': ['react', 'react-dom'],

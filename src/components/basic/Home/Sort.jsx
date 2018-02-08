@@ -35,6 +35,10 @@ class Sort extends React.Component {
         }
     }
 
+    /**
+     * Handles the <select> dropdown sort by change.
+     * @param {*any} event JS Event
+     */
     handleChange(event) {
         // I wish Javascript had proper enums like C..
 
